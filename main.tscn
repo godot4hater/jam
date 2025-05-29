@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhk26m3i8cg0y"]
+[gd_scene load_steps=7 format=3 uid="uid://dhk26m3i8cg0y"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
+radius = 0.685941
+height = 1.65289
 
 [sub_resource type="Animation" id="Animation_7dm0k"]
 resource_name = "new_animation"
@@ -23,19 +25,57 @@ _data = {
 &"new_animation": SubResource("Animation_7dm0k")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(0.4, 0.35, 0.75)
+
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_7dm0k")
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.787688, 0)
+shape = SubResource("CapsuleShape3D_7dm0k")
+
+[node name="Label3D" type="Label3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88283, 0)
 pixel_size = 0.00712747
 modulate = Color(1, 0, 0, 1)
 text = "WE LOVE MAKING VIDEO GAMES!"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Label3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Label3D"]
 libraries = {
 &"": SubResource("AnimationLibrary_ig7tw")
 }
 autoplay = "new_animation"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.882832, 0)
+mesh = SubResource("BoxMesh_7dm0k")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="CharacterBody3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.511296)
+pixel_size = 0.018
+text = "XD
+"
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.870342, 0.686764, 0)
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926611, 0.686764, 0)
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(0.978739, 0, -0.205111, 0, 1, 0, 0.205111, 0, 0.978739, -0.43235, 0.160615, 0)
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(0.994638, 0, 0.103418, 0, 1, 0, -0.103418, 0, 0.994638, 0.450024, 0.160615, 0)
+mesh = SubResource("BoxMesh_0xm2m")
