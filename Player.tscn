@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://chndx0ettdpdg"]
+[gd_scene load_steps=6 format=3 uid="uid://chndx0ettdpdg"]
 
-[ext_resource type="Script" uid="uid://dfh7jovbdhpbx" path="res://PlayerScript.gd" id="1_kpjcp"]
-[ext_resource type="Script" uid="uid://dqu7xmafrsh0p" path="res://CameraMouseController.gd" id="1_xhfnw"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_kpjcp"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kpjcp"]
+[ext_resource type="Script" uid="uid://dfh7jovbdhpbx" path="res://player_script.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://dqu7xmafrsh0p" path="res://camera_mouse_controller.gd" id="2_i3pqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
 height = 2.13339
@@ -13,33 +10,27 @@ height = 2.13339
 [sub_resource type="SphereShape3D" id="SphereShape3D_xhfnw"]
 radius = 0.07
 
-[node name="Player" type="Node3D"]
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_onrkg")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("1_kpjcp")
+[node name="Roborb" parent="." instance=ExtResource("2_hqtel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.966108, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("CapsuleMesh_kpjcp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D"]
-transform = Transform3D(0.272556, 0, 0, 0, 0.165157, 0, 0, 0, 1, 0, 0.297813, 0.96022)
-mesh = SubResource("BoxMesh_kpjcp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_kpjcp")
 
-[node name="CameraPivotPoint" type="Node3D" parent="CharacterBody3D"]
+[node name="CameraPivotPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15149, 0)
-script = ExtResource("1_xhfnw")
+script = ExtResource("2_i3pqv")
 
-[node name="CameraYaw" type="Node3D" parent="CharacterBody3D/CameraPivotPoint"]
+[node name="CameraYaw" type="Node3D" parent="CameraPivotPoint"]
 
-[node name="CameraPitch" type="Node3D" parent="CharacterBody3D/CameraPivotPoint/CameraYaw"]
+[node name="CameraPitch" type="Node3D" parent="CameraPivotPoint/CameraYaw"]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CameraPivotPoint/CameraYaw/CameraPitch"]
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotPoint/CameraYaw/CameraPitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15149, 0)
 shape = SubResource("SphereShape3D_xhfnw")
 spring_length = 3.0
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivotPoint/CameraYaw/CameraPitch/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="CameraPivotPoint/CameraYaw/CameraPitch/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37539, 1.76814)

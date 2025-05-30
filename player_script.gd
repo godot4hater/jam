@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
-var direction : Vector3 	         = Vector3.FORWARD
-@export var speed : float 			 = 6.8
-@export var accel : float 			 = 10.0
-@export var gravity : float 		 = 80
-@export var angularAccel : float 	 = 7
-@export var maxJumpHeight : float    = 4.5 
+var direction : Vector3 	      = Vector3.FORWARD
+@export var speed : float 		  = 6.8
+@export var accel : float 		  = 10.0
+@export var gravity : float 	  = 80
+@export var angularAccel : float  = 7
+@export var maxJumpHeight : float = 4.5 
 
 @onready var cameraRotation = $CameraPivotPoint/CameraYaw.global_transform.basis.get_euler().y
 
@@ -31,7 +31,7 @@ func _physics_process (delta):
 		velocity.x = lerp (velocity.x, direction.x * speed, delta * accel)
 		velocity.z = lerp (velocity.z, direction.z * speed, delta * accel)
 		
-		$MeshInstance3D.rotation.y = lerp_angle ($MeshInstance3D.rotation.y, 
+		$Roborb.rotation.y = lerp_angle ($Roborb.rotation.y, 
 												 atan2 (direction.x, direction.z), 
 												 delta * angularAccel)
 	else:
