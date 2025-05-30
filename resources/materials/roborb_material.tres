@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cipbjtl3703uh"]
+
+[ext_resource type="Texture2D" uid="uid://banki6olw4cdy" path="res://assets/Roborb_sketch.png" id="1_trxfm"]
+
+[sub_resource type="Shader" id="Shader_dvire"]
+code = "shader_type spatial;
+
+uniform sampler2D albedo_texture: source_color, filter_nearest;
+
+void fragment() {
+	vec4 color = texture(albedo_texture, UV);
+	ALBEDO = color.rgb * COLOR.rgb;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_dvire")
+shader_parameter/albedo_texture = ExtResource("1_trxfm")
