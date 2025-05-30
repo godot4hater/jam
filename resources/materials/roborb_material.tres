@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cipbjtl3703uh"]
+
+[ext_resource type="Texture2D" uid="uid://banki6olw4cdy" path="res://assets/Roborb_sketch.png" id="1_trxfm"]
+
+[sub_resource type="Shader" id="Shader_dvire"]
+code = "shader_type spatial;
+render_mode cull_disabled;
+
+uniform sampler2D albedo_texture: source_color, filter_nearest;
+uniform sampler2D noise_texture: source_color;
+
+void vertex(){
+	float r = texture(noise_texture, vec2(UV.x + (TIME * 0.12), UV.y)).r;
+	VERTEX += (NORMAL) * (r * 0.025);
+}
+
+void fragment() {
+	vec4 color = texture(albedo_texture, UV);
+	ALBEDO = color.rgb * COLOR.rgb;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trxfm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c15c0"]
+seamless = true
+noise = SubResource("FastNoiseLite_trxfm")
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_dvire")
+shader_parameter/albedo_texture = ExtResource("1_trxfm")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_c15c0")

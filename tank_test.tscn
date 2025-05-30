@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0ppg60uvnlnp"]
+
+[ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="1_wega3"]
+[ext_resource type="PackedScene" uid="uid://cj0vdf4bgg7vy" path="res://broom_test.tscn" id="2_wega3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wega3"]
+sky_top_color = Color(0.460129, 0.618055, 0.722656, 1)
+sky_horizon_color = Color(0.836579, 0.870145, 0.889378, 1)
+ground_bottom_color = Color(0.226563, 0.202902, 0.175232, 1)
+ground_horizon_color = Color(0.836579, 0.870145, 0.889378, 1)
+
+[sub_resource type="Sky" id="Sky_g7o1f"]
+sky_material = SubResource("ProceduralSkyMaterial_wega3")
+
+[sub_resource type="Environment" id="Environment_cerkn"]
+background_mode = 2
+sky = SubResource("Sky_g7o1f")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cerkn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Broom" parent="." instance=ExtResource("2_wega3")]
+transform = Transform3D(-0.853613, -0.00612309, 0.520871, -0.515193, 0.157624, -0.842455, -0.0769434, -0.987481, -0.137705, -0.117202, 0.607181, -0.260691)
+
+[node name="Skeleton3D" parent="Broom/Broom2/BroomArmature" index="0"]
+bones/1/position = Vector3(0, -0.170985, 0)
+
+[node name="AnimationPlayer" parent="Broom/Broom2" index="1"]
+autoplay = "retract"
+
+[node name="Roborb" parent="." instance=ExtResource("1_wega3")]
+
+[node name="Skeleton3D" parent="Roborb/Armature" index="0"]
+bones/1/position = Vector3(0, 0.227871, 0)
+bones/1/rotation = Quaternion(0.116933, -7.65554e-05, -1.1458e-05, 0.99314)
+bones/2/rotation = Quaternion(-0.129599, -6.20592e-07, 2.03904e-05, 0.991567)
+bones/3/rotation = Quaternion(-0.106025, -0.00707114, -0.0357371, 0.993696)
+bones/7/rotation = Quaternion(-0.582564, -0.0397284, -0.479312, 0.655211)
+bones/8/rotation = Quaternion(0.0025522, -5.3437e-08, -9.30228e-09, 0.999997)
+bones/9/rotation = Quaternion(-0.0179947, 0.360469, 0.209878, 0.908674)
+bones/10/rotation = Quaternion(-0.582544, 0.0399387, 0.479345, 0.655192)
+bones/11/rotation = Quaternion(0.0025522, 4.69294e-08, -3.38193e-09, 0.999997)
+bones/12/rotation = Quaternion(-0.0179886, -0.360594, -0.209901, 0.90862)
+bones/13/position = Vector3(0.113808, 0.168915, 0.0567975)
+bones/13/rotation = Quaternion(-0.470168, 0.252688, 0.738228, -0.412444)
+bones/14/position = Vector3(-0.113808, 0.168915, 0.0567975)
+bones/14/rotation = Quaternion(0.470168, 0.252688, 0.738228, 0.412444)
+bones/15/position = Vector3(0.113511, 0.176582, -0.0484655)
+bones/15/rotation = Quaternion(0.463581, -0.278729, 0.728508, -0.420333)
+bones/16/position = Vector3(-0.113511, 0.176582, -0.0484655)
+bones/16/rotation = Quaternion(-0.463215, -0.279364, 0.728264, 0.420736)
+bones/17/position = Vector3(0.594814, 0.324307, -0.430177)
+bones/17/rotation = Quaternion(-0.462461, 0.552088, 0.653969, 0.231632)
+bones/18/position = Vector3(0.366628, 0.320402, -0.237648)
+bones/19/position = Vector3(-0.594814, 0.324307, -0.430177)
+bones/19/rotation = Quaternion(-0.462461, -0.552088, -0.653969, 0.231632)
+bones/20/position = Vector3(-0.366628, 0.320402, -0.237648)
+
+[node name="HandOpenLeft" parent="Roborb/Armature/Skeleton3D" index="3"]
+visible = false
+
+[node name="HandOpenRight" parent="Roborb/Armature/Skeleton3D" index="4"]
+visible = false
+
+[node name="HandPieceLeft" parent="Roborb/Armature/Skeleton3D" index="5"]
+visible = false
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Roborb/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.26653, -0.464743, -0.844379, 0.962127, 0.180295, 0.204464, 0.0572146, -0.866896, 0.495195, -0.588108, 0.325842, -0.423057)
+bone_name = "hand.r"
+bone_idx = 12
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(-0.02431, 0.999705, 0, -0.999704, -0.02431, 0, 0, 0, 1, -0.0773992, 0.131397, 0)
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Roborb/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 4.18601e-06, -0.00015481, -2.33311e-07, 0.999674, 0.0255238, 0.000154867, -0.0255238, 0.999674, 4.38587e-07, 0.315737, 0.0209816)
+bone_name = "spine2"
+bone_idx = 2
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/BoneAttachment3D2"]
+transform = Transform3D(-0.853625, -0.00627605, 0.52085, -0.513065, 0.182777, -0.838664, -0.0899359, -0.983135, -0.159243, -0.117246, 0.298538, -0.274124)
+remote_path = NodePath("../../../../../Broom")
+
+[node name="AntennaSpringBone" type="SpringBoneSimulator3D" parent="Roborb/Armature/Skeleton3D" index="8"]
+setting_count = 1
+settings/0/root_bone_name = "antenna1"
+settings/0/root_bone = 4
+settings/0/end_bone_name = "antenna3"
+settings/0/end_bone = 6
+settings/0/extend_end_bone = false
+settings/0/center_from = 0
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.02
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 0.46
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.1
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 0.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/enable_all_child_collisions = true
+settings/0/exclude_collision_count = 0
+
+[node name="AnimationPlayer" parent="Roborb" index="1"]
+autoplay = "walk"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999283, 0.0117509, 0.036007, 0.0116392, 0.999927, -0.00330858, -0.0360432, -0.00288711, -0.999346, -0.154577, 1.02193, -1.89749)
+
+[editable path="Broom"]
+[editable path="Broom/Broom2"]
+[editable path="Roborb"]
