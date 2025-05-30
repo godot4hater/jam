@@ -1,0 +1,180 @@
+[gd_scene load_steps=4 format=3 uid="uid://swj5nygmpgfo"]
+
+[ext_resource type="Script" uid="uid://c8g1s54vvyqna" path="res://track_path.gd" id="1_kllea"]
+[ext_resource type="ArrayMesh" uid="uid://cediefmlfskvk" path="res://resources/mesh/tread_track_piece.res" id="2_625ch"]
+
+[sub_resource type="Curve3D" id="Curve3D_cerkn"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, -0.172241, 0.00849086, 0, 0.172241, -0.00849086, 0, -0.0103102, 0.41059, 1.2815e-05, 0.0109265, 0.158536, -1.2815e-05, -0.0109265, -0.158536, 0, 0.188876, 0.00495183, 0, 0.189223, -0.0109166, 0, -0.189223, 0.0109166, 0, 0.000606499, -0.392395, -1.2815e-05, 3.73274e-06, -0.138729, 1.2815e-05, -3.73274e-06, 0.138729, 0, -0.1, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="TrackPath" type="Path3D"]
+curve = SubResource("Curve3D_cerkn")
+script = ExtResource("1_kllea")
+speed = 0.1
+metadata/_edit_group_ = true
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+transform = Transform3D(0.99996, 8.15452e-06, -4.39142e-05, 1.10926e-05, -0.997696, 0.0673112, -4.32698e-05, -0.067318, -0.997596, 3.30726e-06, -0.106245, 0.075779)
+progress = 1.49946
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999952, 7.29396e-06, -1.50693e-07, 7.28954e-06, -0.998081, 0.0611227, 2.95463e-07, -0.0611279, -0.997996, 5.16223e-06, -0.114085, 0.179394)
+progress = 1.60337
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D2"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999951, 2.98736e-06, 1.83478e-05, 6.68171e-06, -0.978772, -0.204758, 1.73488e-05, 0.204779, -0.978672, 4.22076e-06, -0.106428, 0.278769)
+progress = 1.70728
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D3"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999961, -1.02386e-05, 9.13643e-06, 3.58877e-06, -0.447553, -0.894131, 1.32452e-05, 0.894236, -0.447501, 1.53238e-06, -0.0452065, 0.362731)
+progress = 1.8112
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D4"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999962, 1.53884e-06, -1.10725e-05, -1.09844e-05, 0.319693, -0.947388, 2.08218e-06, 0.9475, 0.319655, 7.03844e-07, 0.0308258, 0.393144)
+progress = 0.0446826
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D5"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="."]
+transform = Transform3D(0.99996, 1.31088e-05, -2.46905e-05, -2.5748e-05, 0.775916, -0.630739, 1.08907e-05, 0.630816, 0.775822, 2.65955e-06, 0.112987, 0.336835)
+progress = 0.148595
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D6"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="."]
+transform = Transform3D(0.99996, 2.08924e-05, -1.42814e-05, -2.43132e-05, 0.949714, -0.313036, 7.02394e-06, 0.313074, 0.9496, 4.88837e-06, 0.161912, 0.246129)
+progress = 0.252508
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D7"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999955, 2.12379e-05, 1.07239e-05, -1.97355e-05, 0.992204, -0.124568, -1.32871e-05, 0.124584, 0.992076, 5.35725e-06, 0.184246, 0.144645)
+progress = 0.35642
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D8"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999958, 1.62789e-05, 6.19926e-05, -1.75374e-05, 0.999788, 0.0203598, -6.16542e-05, -0.0203625, 0.999654, 1.51e-06, 0.188236, 0.0410011)
+progress = 0.460333
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D9"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999955, 1.26502e-05, 4.56017e-05, -1.58776e-05, 0.997427, 0.0714755, -4.4585e-05, -0.0714842, 0.997305, -2.80659e-06, 0.185025, -0.0627963)
+progress = 0.564245
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D10"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D11" type="PathFollow3D" parent="."]
+transform = Transform3D(0.99996, 1.2084e-05, 3.2079e-06, -1.24029e-05, 0.991113, 0.132861, -1.57408e-06, -0.132877, 0.990996, -5.22118e-06, 0.175339, -0.166149)
+progress = 0.668158
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D11"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D12" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999961, 1.42445e-05, -2.03796e-05, -7.04316e-06, 0.948331, 0.317176, 2.38475e-05, -0.317212, 0.948225, -4.49362e-06, 0.156067, -0.267649)
+progress = 0.77207
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D12"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D13" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999961, 2.68737e-05, -2.78251e-05, 2.36232e-06, 0.675557, 0.737193, 3.86132e-05, -0.737275, 0.675481, -1.76367e-06, 0.106018, -0.35796)
+progress = 0.875983
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D13"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D14" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999963, 3.83915e-05, -1.9518e-06, 2.23218e-06, -0.00729947, 0.999835, 3.83758e-05, -0.999946, -0.00729867, -1.11031e-07, 0.00724263, -0.390228)
+progress = 0.979895
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D14"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D15" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999963, 3.29768e-05, 1.37996e-05, 1.44942e-05, -0.726908, 0.68662, 3.26777e-05, -0.686694, -0.72683, -2.43195e-06, -0.0607591, -0.317362)
+progress = 1.08381
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D15"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D16" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999965, 1.9845e-05, 1.75526e-05, 1.97e-05, -0.999927, 0.00822979, 1.77171e-05, -0.00823058, -0.99983, -4.84991e-06, -0.119934, -0.234851)
+progress = 1.18772
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D16"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D17" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999964, 1.9206e-05, -1.0575e-05, 1.79216e-05, -0.993854, -0.110342, -1.2631e-05, 0.110353, -0.993757, -5.34452e-06, -0.111893, -0.13125)
+progress = 1.29163
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D17"]
+mesh = ExtResource("2_625ch")
+
+[node name="PathFollow3D18" type="PathFollow3D" parent="."]
+transform = Transform3D(0.999963, 1.52029e-05, -7.40186e-05, 1.30195e-05, -0.999527, -0.029403, -7.44411e-05, 0.0294058, -0.999431, -1.26857e-06, -0.102555, -0.0277593)
+progress = 1.39555
+cubic_interp = false
+tilt_enabled = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D18"]
+mesh = ExtResource("2_625ch")

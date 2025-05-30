@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ppg60uvnlnp"]
+
+[ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="1_wega3"]
+[ext_resource type="PackedScene" uid="uid://swj5nygmpgfo" path="res://track_path.tscn" id="2_wega3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Roborb" parent="." instance=ExtResource("1_wega3")]
+
+[node name="TrackPathLeft" parent="Roborb/Chassis" index="3" instance=ExtResource("2_wega3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270572, 0, 0)
+
+[node name="TrackPathRight" parent="Roborb/Chassis" index="4" instance=ExtResource("2_wega3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.271, 0, 0)
+
+[node name="Piece" parent="Roborb" index="1"]
+visible = false
+
+[editable path="Roborb"]
