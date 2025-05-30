@@ -1,16 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj0vdf4bgg7vy"]
+[gd_scene load_steps=3 format=3 uid="uid://cj0vdf4bgg7vy"]
 
 [ext_resource type="PackedScene" uid="uid://d04h2e5l7cl8b" path="res://assets/Broom.glb" id="1_eht13"]
+[ext_resource type="Script" uid="uid://b16x52wvyxfih" path="res://broom.gd" id="1_k0rnd"]
 
-[node name="Broom" type="Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Broom" type="Marker3D" node_paths=PackedStringArray("anim_player")]
 gizmo_extents = 0.5
-metadata/_edit_group_ = true
+script = ExtResource("1_k0rnd")
+anim_player = NodePath("Broom2/AnimationPlayer")
 
 [node name="Broom2" parent="." instance=ExtResource("1_eht13")]
 
 [node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Broom2/BroomArmature/Skeleton3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 setting_count = 1
 settings/0/root_bone_name = "handle2"
 settings/0/root_bone = 1
