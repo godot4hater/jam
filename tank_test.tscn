@@ -13,7 +13,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270572, 0, 0)
 [node name="TrackPathRight" parent="Roborb/Chassis" index="4" instance=ExtResource("2_wega3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.271, 0, 0)
 
-[node name="Piece" parent="Roborb" index="1"]
-visible = false
-
 [editable path="Roborb"]
