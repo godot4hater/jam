@@ -37,6 +37,10 @@ _subresources={
 "Material": {
 "use_external/enabled": true,
 "use_external/path": "uid://cipbjtl3703uh"
+},
+"Tracks": {
+"use_external/enabled": true,
+"use_external/path": "uid://dek0i7n6cnfs4"
 }
 }
 }

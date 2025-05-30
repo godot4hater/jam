@@ -1,0 +1,51 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dek0i7n6cnfs4"]
+
+[ext_resource type="Texture2D" uid="uid://8q68elalj143" path="res://assets/roborb_tracks.png" id="1_cvexy"]
+
+[sub_resource type="Shader" id="Shader_wwwsb"]
+code = "shader_type spatial;
+render_mode cull_disabled;
+
+uniform sampler2D albedo_texture: source_color, filter_nearest;
+// Player script should set speed to 1 when slow and 3 when fast. 
+uniform float speed = 0.0;
+// And fast to false when slow and true when fast.
+uniform bool fast;
+
+uniform sampler2D noise_texture: source_color;
+
+void vertex(){
+	float r = texture(noise_texture, vec2(UV.x + (TIME * 0.12), UV.y)).r;
+	VERTEX += (NORMAL) * (r * 0.025);
+}
+
+void fragment() {
+	float uv_y = UV.y;
+	float scroll_speed = speed; 
+	
+	if (fast){
+		uv_y += 0.5;
+		//scroll_speed = -speed;
+	}
+	else{
+		scroll_speed = -speed;
+	}
+		
+	vec4 color = texture(albedo_texture, vec2(UV.x + (TIME * scroll_speed), uv_y));
+	ALBEDO = color.rgb * COLOR.rgb;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trxfm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cvexy"]
+seamless = true
+noise = SubResource("FastNoiseLite_trxfm")
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_wwwsb")
+shader_parameter/albedo_texture = ExtResource("1_cvexy")
+shader_parameter/speed = 3.0
+shader_parameter/fast = true
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_cvexy")
