@@ -1,16 +1,37 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0ppg60uvnlnp"]
 
 [ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="1_wega3"]
-[ext_resource type="PackedScene" uid="uid://swj5nygmpgfo" path="res://track_path.tscn" id="2_wega3"]
+[ext_resource type="PackedScene" uid="uid://cj0vdf4bgg7vy" path="res://broom_test.tscn" id="2_wega3"]
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152687, 0.0991361, 0)
+
+[node name="Broom" parent="." instance=ExtResource("2_wega3")]
+transform = Transform3D(-0.853625, -0.00627605, 0.52085, -0.513065, 0.182777, -0.838664, -0.0899359, -0.983135, -0.159243, 0.0293855, 0.522582, 0.0603639)
+
+[node name="Skeleton3D" parent="Broom/Broom2/BroomArmature" index="0"]
+bones/1/position = Vector3(0, -0.170985, 0)
 
 [node name="Roborb" parent="." instance=ExtResource("1_wega3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146632, 0, 0.334488)
 
-[node name="TrackPathLeft" parent="Roborb/Chassis" index="3" instance=ExtResource("2_wega3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270572, 0, 0)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Roborb/Armature/Skeleton3D" index="6"]
+transform = Transform3D(-1.07702e-08, -1, 2.23517e-08, 1, -2.65736e-08, -0.000122116, 0.00012212, 7.45058e-09, 1, -0.784788, 0.330813, -9.12696e-08)
+bone_name = "hand.r"
+bone_idx = 12
 
-[node name="TrackPathRight" parent="Roborb/Chassis" index="4" instance=ExtResource("2_wega3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.271, 0, 0)
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(-0.02431, 0.999705, 0, -0.999704, -0.02431, 0, 0, 0, 1, -0.0773992, 0.131397, 0)
 
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Roborb/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224043, 0)
+bone_name = "spine2"
+bone_idx = 2
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/BoneAttachment3D2"]
+transform = Transform3D(-0.853625, -0.00627605, 0.52085, -0.513065, 0.182777, -0.838664, -0.0899359, -0.983135, -0.159243, -0.117246, 0.298538, -0.274124)
+remote_path = NodePath("../../../../../Broom")
+
+[editable path="Broom"]
+[editable path="Broom/Broom2"]
 [editable path="Roborb"]
