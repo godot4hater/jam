@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://drxn02d1ubuoc"]
+
+[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_syqf5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot7vp"]
+albedo_color = Color(0.831373, 1, 1, 1)
+
+[sub_resource type="Environment" id="Environment_ot7vp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_syqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38286, 0)
+
+[node name="LevelGeo" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7197, -1.2002, -9.46297)
+use_collision = true
+size = Vector3(81.0623, 3.40039, 80.1955)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1019, 8.08667, 32.5443)
+use_collision = true
+size = Vector3(86.2089, 21.9741, 3.28556)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1019, 8.08667, 32.5443)
+use_collision = true
+size = Vector3(86.2089, 21.9741, 3.28556)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1019, 8.08667, -50.6071)
+use_collision = true
+size = Vector3(86.2089, 21.9741, 3.28556)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(-0.0513076, 0, 0.998683, 0, 1, 0, -0.998683, 0, -0.0513076, -69.8081, 8.08667, -12.1554)
+use_collision = true
+size = Vector3(92.6409, 21.9741, 3.28556)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(-0.0513076, 0, 0.998683, 0, 1, 0, -0.998683, 0, -0.0513076, 16.5221, 8.08667, -12.1554)
+use_collision = true
+size = Vector3(92.6409, 21.9741, 3.28556)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 0.84234, -0.538947, 0, 0.538947, 0.84234, -15.6418, 1.83906, -16.0209)
+use_collision = true
+size = Vector3(34.4041, 3.40039, 34.1119)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 0.999916, 0.0129504, 0, -0.0129504, 0.999916, -29.6203, 1.30248, 9.8052)
+use_collision = true
+size = Vector3(13.044, 3.40039, 10.5226)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(0.956039, -0.293215, -0.00379757, 0.293239, 0.955959, 0.0123811, 0, -0.0129504, 0.999916, -5.96818, 5.92922, 25.627)
+use_collision = true
+size = Vector3(31.3556, 3.40039, 0.626638)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(0.570001, -0.185215, 0.800497, 0.293239, 0.955959, 0.0123811, -0.767535, 0.22768, 0.59921, 16.7228, 14.4447, 14.1856)
+use_collision = true
+size = Vector3(31.3556, 3.40039, 0.626638)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(0.719328, -0.00899628, 0.694613, 0, 0.999916, 0.0129504, -0.694671, -0.0093156, 0.719268, -13.6124, 1.74708, 18.903)
+use_collision = true
+size = Vector3(19.2891, 3.40039, 0.475271)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 0.999916, 0.0129504, 0, -0.0129504, 0.999916, -39.7751, 5.29568, 11.0653)
+use_collision = true
+size = Vector3(13.044, 3.40039, 10.5226)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 0.999916, 0.0129504, 0, -0.0129504, 0.999916, -37.3237, 7.2884, -1.5572)
+use_collision = true
+size = Vector3(13.044, 3.40039, 10.5226)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 0.953423, -0.301637, 0, 0.301637, 0.953423, -31.3322, 10.575, -12.7321)
+use_collision = true
+size = Vector3(25.0269, 3.40039, 10.5226)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="LevelGeo"]
+transform = Transform3D(0.893974, -0.427246, 0.135169, 0.448118, 0.852336, -0.269656, 4.2655e-09, 0.301637, 0.953423, -0.555361, 11.1264, -12.7321)
+use_collision = true
+size = Vector3(25.0269, 3.40039, 10.5226)
+material = SubResource("StandardMaterial3D_ot7vp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="LevelGeo"]
+environment = SubResource("Environment_ot7vp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LevelGeo"]
+transform = Transform3D(0.862029, 0.39427, -0.318523, -0.200337, 0.84229, 0.500413, 0.465587, -0.367559, 0.805065, 0, 3.50288, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9027, 32.8517, 0)
+use_collision = true
+radius = 10.0527
+height = 65.2952
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="LevelGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99548, 0, 13.642)
+use_collision = true
+radius = 6.36762
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="LevelGeo"]
+transform = Transform3D(0.984537, 0.155236, -0.0811727, 0, 0.463373, 0.886163, 0.175178, -0.87246, 0.456208, -34.5839, 2.65146, 28.4962)
+use_collision = true
+polygon = PackedVector2Array(-14.2688, -1.61232, -9.58051, 8.41486, 5.40277, 9.65686, 11.3194, 6.12929)
