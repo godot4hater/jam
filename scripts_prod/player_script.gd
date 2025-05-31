@@ -51,7 +51,6 @@ func _physics_process (delta):
 		
 		
 	var h_input = Input.get_vector("mLeft", "mRight", "mForward", "mBack")
-	print(h_input)
 	if h_input:	
 		cameraRotation = $CameraPivotPoint/CameraYaw.global_transform.basis.get_euler().y	
 		direction = Vector3(h_input.x, 0.0, h_input.y).rotated(Vector3.UP, cameraRotation)
