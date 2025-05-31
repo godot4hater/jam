@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dgcm12j86jxph"
-path="res://.godot/imported/TrashBag_S.glb-905fb5553a05969d2b7fcd1ad78edeff.scn"
+uid="uid://3nycdrn4oovy"
+path="res://.godot/imported/Battery.glb-cec854ddb516e98771bef6f1405ad712.scn"
 
 [deps]
 
-source_file="res://assets/mesh/TrashBag_S.glb"
-dest_files=["res://.godot/imported/TrashBag_S.glb-905fb5553a05969d2b7fcd1ad78edeff.scn"]
+source_file="res://assets/Battery.glb"
+dest_files=["res://.godot/imported/Battery.glb-cec854ddb516e98771bef6f1405ad712.scn"]
 
 [params]
 
@@ -34,21 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"TrashBag": {
+"Material": {
 "use_external/enabled": true,
-"use_external/path": "uid://bbysy0v7qybv5"
-}
-},
-"meshes": {
-"TrashBag_S_Roundcube_003": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://resources/mesh/TrashBag_S.res"
+"use_external/path": "uid://cipbjtl3703uh"
 }
 }
 }
 gltf/naming_version=1
-gltf/embedded_image_handling=0
+gltf/embedded_image_handling=1

@@ -7,7 +7,7 @@ code = "shader_type spatial;
 render_mode cull_disabled;
 
 uniform sampler2D albedo_texture: source_color, filter_nearest;
-// Player script should set speed to 1 when slow and 3 when fast. 
+// Player script should set speed to 1 when slow and 3 when fast.
 uniform float speed = 0.0;
 // And fast to false when slow and true when fast.
 uniform bool fast;
@@ -21,8 +21,8 @@ void vertex(){
 
 void fragment() {
 	float uv_y = UV.y;
-	float scroll_speed = speed; 
-	
+	float scroll_speed = speed;
+
 	if (fast){
 		uv_y += 0.5;
 		//scroll_speed = -speed;
@@ -30,7 +30,7 @@ void fragment() {
 	else{
 		scroll_speed = -speed;
 	}
-		
+
 	vec4 color = texture(albedo_texture, vec2(UV.x + (TIME * scroll_speed), uv_y));
 	ALBEDO = color.rgb * COLOR.rgb;
 }

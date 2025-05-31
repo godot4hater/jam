@@ -35,7 +35,7 @@ import_script/path=""
 _subresources={
 "materials": {
 "TrashBag": {
-"use_external/enabled": false,
+"use_external/enabled": true,
 "use_external/path": "uid://bbysy0v7qybv5"
 }
 },
