@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://drxn02d1ubuoc"]
 
-[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://player.tscn" id="1_fmwu6"]
-[ext_resource type="PackedScene" path="res://object_spawner.tscn" id="2_rfrm5"]
+[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_fmwu6"]
+[ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="2_rfrm5"]
 [ext_resource type="PackedScene" uid="uid://cjhli42vgwyd6" path="res://test_trash_pile.tscn" id="3_rfrm5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot7vp"]

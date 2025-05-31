@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://ba0g65vctukut"]
+
+[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_eq5wj"]
+[ext_resource type="PackedScene" uid="uid://cjhli42vgwyd6" path="res://test_trash_pile.tscn" id="2_x7g8w"]
+
+[sub_resource type="Environment" id="Environment_eq5wj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq5wj"]
+albedo_color = Color(0.93, 0.59489, 0.4929, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loya5"]
+albedo_color = Color(1, 0.7195, 0.49, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7g8w"]
+albedo_color = Color(1, 0.7195, 0.49, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmrv1"]
+albedo_color = Color(0.6515, 1, 0.49, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6yrc"]
+albedo_color = Color(0.6105, 1, 0.43, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bieh5"]
+albedo_color = Color(0.6105, 1, 0.43, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1172"]
+albedo_color = Color(0.6105, 1, 0.43, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b3i4"]
+albedo_color = Color(0.6105, 1, 0.43, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_eq5wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34.5607)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.5613, 0)
+light_indirect_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eq5wj")
+
+[node name="Geo" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25836, -0.731922, 1.14709)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = SubResource("StandardMaterial3D_eq5wj")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4387, 1.58875, 32.9716)
+use_collision = true
+size = Vector3(14.1704, 7.28137, 11.6613)
+material = SubResource("StandardMaterial3D_loya5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(0.942455, 0.334333, 0, -0.334333, 0.942455, 0, 0, 0, 1, -13.1318, 1.94712, 33.0983)
+use_collision = true
+size = Vector3(19.4456, 0.001, 11.5535)
+material = SubResource("StandardMaterial3D_x7g8w")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6469, 2.61325, 21.9426)
+use_collision = true
+size = Vector3(3.84, 8.473, 3.84)
+material = SubResource("StandardMaterial3D_wmrv1")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8654, 3.1414, 12.7384)
+use_collision = true
+size = Vector3(3.84, 8.659, 3.84)
+material = SubResource("StandardMaterial3D_x6yrc")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2321, 2.9749, 3.91414)
+use_collision = true
+size = Vector3(3.84, 9.81685, 3.84)
+material = SubResource("StandardMaterial3D_bieh5")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.829, 8.20533, -10.2705)
+use_collision = true
+size = Vector3(14.5283, 1, 18.2561)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 0.857742, -0.51408, 0, 0.51408, 0.857742, -29.5959, 10.2752, -22.4922)
+use_collision = true
+size = Vector3(13.3926, 0.143566, 7.37622)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3322, 11.971, -32.1776)
+use_collision = true
+size = Vector3(16.5708, 0.228516, 13.4714)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03039, 11.971, -32.1942)
+use_collision = true
+size = Vector3(15.7347, 0.112793, 14.7722)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6794, 11.5072, -34.0626)
+use_collision = true
+size = Vector3(16.679, 1, 2.48547)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3702, 12.8738, -32.3767)
+use_collision = true
+size = Vector3(2.80269, 3.26218, 20.8427)
+material = SubResource("StandardMaterial3D_f1172")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7042, 13.0606, -32.2882)
+use_collision = true
+size = Vector3(2.98444, 3.12054, 21.1558)
+material = SubResource("StandardMaterial3D_5b3i4")
+
+[node name="testTrashPile" parent="." instance=ExtResource("2_x7g8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2838, 5.69923, 33.138)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4, 12.7989, -30.7106)
+use_collision = true
+size = Vector3(17.9778, 0.190918, 17.7046)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0251824, 0.999683, 0, -0.999683, 0.0251824, 0.383728, 57.1036, 1.68167)
+light_energy = 5.0
+spot_range = 83.8224
+spot_angle = 48.8212

@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
 var direction : Vector3 	      = Vector3.FORWARD
-@export var MAX_SPEED : float     = 6.8
+@export var MAX_SPEED : float     = 12.0
 @export var MAX_ANG_ACCEL : float = 3.5
-@export var speed : float 		  = 6.8
+@export var speed : float 		  = 12.0
 @export var accel : float 		  = 10.0
 @export var gravity : float 	  = 80
 @export var angularAccel : float  = 3.5
