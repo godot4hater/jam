@@ -5,7 +5,7 @@ extends Node3D
 @onready var cameraRef = $CameraYaw/CameraPitch/SpringArm3D/Camera3D
 
 @export var PITCH_MIN : float 		= -80.0
-@export var PITCH_MAX : float 		= 45.0
+@export var PITCH_MAX : float 		= 40.0
 @export var yaw : float 			= 0.0
 @export var pitch : float 			= 0.0
 @export var yawMutiplier : float 	= 0.13

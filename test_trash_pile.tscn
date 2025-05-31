@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://erbfxm2katx"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_2frl5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkl2q"]
+
+[node name="testTrashPile" type="RigidBody3D" groups=["TrashPile"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_2frl5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nkl2q")
+debug_fill = false

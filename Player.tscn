@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://chndx0ettdpdg"]
+[gd_scene load_steps=8 format=3 uid="uid://chndx0ettdpdg"]
 
-[ext_resource type="Script" uid="uid://dfh7jovbdhpbx" path="res://player_script.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://dfh7jovbdhpbx" path="res://scripts_prod/player_script.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="2_hqtel"]
-[ext_resource type="Script" uid="uid://dqu7xmafrsh0p" path="res://camera_mouse_controller.gd" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://dqu7xmafrsh0p" path="res://scripts_prod/camera_mouse_controller.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://cj0vdf4bgg7vy" path="res://broom_test.tscn" id="4_e80uo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
@@ -11,7 +11,12 @@ height = 1.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_hqtel"]
 radius = 0.05
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sweqy"]
+radius = 0.865486
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_onrkg")
 
 [node name="Roborb" parent="." instance=ExtResource("2_hqtel")]
@@ -117,6 +122,9 @@ remote_path = NodePath("../../../../../Broom")
 [node name="AnimationPlayer" parent="Roborb" index="1"]
 autoplay = "idle"
 
+[node name="ObjectHolderNode" type="Node3D" parent="Roborb"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0392675, 0.412549, 0.676226)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_kpjcp")
@@ -141,5 +149,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37539, 1.62903)
 [node name="Broom" parent="." instance=ExtResource("4_e80uo")]
 transform = Transform3D(-0.707107, -0.0915494, -0.701155, 0.707107, -0.0915496, -0.701155, -9.24658e-08, -0.991583, 0.129471, 0.200375, 0.570838, 0.261902)
 holstered = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="AreaCollider" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.638979, 0)
+shape = SubResource("SphereShape3D_sweqy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 
 [editable path="Roborb"]
