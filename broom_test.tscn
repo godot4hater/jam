@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj0vdf4bgg7vy"]
 
 [ext_resource type="PackedScene" uid="uid://d04h2e5l7cl8b" path="res://assets/Broom.glb" id="1_eht13"]
-[ext_resource type="Script" uid="uid://b16x52wvyxfih" path="res://broom.gd" id="1_k0rnd"]
+[ext_resource type="Script" uid="uid://b16x52wvyxfih" path="res://scripts_prod/broom.gd" id="1_k0rnd"]
 
 [node name="Broom" type="Marker3D" node_paths=PackedStringArray("anim_player")]
 gizmo_extents = 0.5

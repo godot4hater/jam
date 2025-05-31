@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://drxn02d1ubuoc"]
+[gd_scene load_steps=6 format=3 uid="uid://drxn02d1ubuoc"]
 
-[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_syqf5"]
-[ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="2_2frl5"]
+[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://player.tscn" id="1_fmwu6"]
+[ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="2_rfrm5"]
+[ext_resource type="PackedScene" uid="uid://erbfxm2katx" path="res://test_trash_pile.tscn" id="3_rfrm5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot7vp"]
 albedo_color = Color(0.831373, 1, 1, 1)
@@ -10,7 +11,7 @@ albedo_color = Color(0.831373, 1, 1, 1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_syqf5")]
+[node name="Player" parent="." instance=ExtResource("1_fmwu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38286, 0)
 
 [node name="LevelGeo" type="Node" parent="."]
@@ -139,7 +140,8 @@ material = SubResource("StandardMaterial3D_ot7vp")
 environment = SubResource("Environment_ot7vp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LevelGeo"]
-transform = Transform3D(0.862029, 0.39427, -0.318523, -0.200337, 0.84229, 0.500413, 0.465587, -0.367559, 0.805065, 0, 3.50288, 0)
+transform = Transform3D(0.954114, 0.0517011, 0.294947, -0.292486, -0.0501998, 0.954952, 0.064178, -0.9974, -0.0327743, 0, 3.50288, 0)
+shadow_enabled = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="LevelGeo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9027, 32.8517, 0)
@@ -163,5 +165,8 @@ collision_layer = 3
 collision_mask = 3
 polygon = PackedVector2Array(-14.2688, -1.61232, -9.58051, 8.41486, 5.40277, 9.65686, 11.3194, 6.12929)
 
-[node name="spawner" parent="." instance=ExtResource("2_2frl5")]
+[node name="spawner" parent="." instance=ExtResource("2_rfrm5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6973, 1.3019, 11.175)
+
+[node name="testTrashPile" parent="." instance=ExtResource("3_rfrm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91394, 2.53693, 6.86188)
