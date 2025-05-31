@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0ppg60uvnlnp"]
 
 [ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="1_wega3"]
-[ext_resource type="PackedScene" uid="uid://cj0vdf4bgg7vy" path="res://broom_test.tscn" id="2_wega3"]
+[ext_resource type="PackedScene" uid="uid://cj0vdf4bgg7vy" path="res://prefabs/broom_test.tscn" id="2_wega3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wega3"]
 sky_top_color = Color(0.460129, 0.618055, 0.722656, 1)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=18 format=3 uid="uid://ba0g65vctukut"]
 
-[ext_resource type="PackedScene" uid="uid://d1xyoa0a24hom" path="res://battery_pickup.tscn" id="1_bieh5"]
-[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_eq5wj"]
+[ext_resource type="PackedScene" uid="uid://d1xyoa0a24hom" path="res://prefabs/battery_pickup.tscn" id="1_bieh5"]
+[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://prefabs/player.tscn" id="1_eq5wj"]
 [ext_resource type="PackedScene" uid="uid://cjhli42vgwyd6" path="res://test_trash_pile.tscn" id="2_x7g8w"]
 [ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="3_loya5"]
-[ext_resource type="Script" uid="uid://cn7v2d3cy3ysi" path="res://scenes_levels/global_spawner.gd" id="3_x6yrc"]
-[ext_resource type="Script" uid="uid://yem6al4c0yf0" path="res://scenes_levels/spawner_timer.gd" id="4_bieh5"]
-[ext_resource type="Script" uid="uid://dpcf14jjm4p06" path="res://scenes_levels/chutes.gd" id="7_5b3i4"]
-[ext_resource type="PackedScene" uid="uid://ddsks3vhmt8yq" path="res://chute.tscn" id="7_f1172"]
+[ext_resource type="Script" uid="uid://cn7v2d3cy3ysi" path="res://scripts_prod/global_spawner.gd" id="3_x6yrc"]
+[ext_resource type="Script" uid="uid://yem6al4c0yf0" path="res://scripts_prod/spawner_timer.gd" id="4_bieh5"]
+[ext_resource type="Script" uid="uid://dpcf14jjm4p06" path="res://scripts_prod/chutes.gd" id="7_5b3i4"]
+[ext_resource type="PackedScene" uid="uid://ddsks3vhmt8yq" path="res://prefabs/chute.tscn" id="7_f1172"]
 
 [sub_resource type="Environment" id="Environment_eq5wj"]
 

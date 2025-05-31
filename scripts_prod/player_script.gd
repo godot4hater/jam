@@ -10,8 +10,13 @@ var direction : Vector3 	      = Vector3.FORWARD
 @export var maxJumpHeight : float = 4.5 
 @export var throwStrength : float = 7.0
 
+# player states
 var isHoldingItem : bool                    = false
 var isSlow : bool                           = false
+var isDead : bool                           = false
+var isInLava : bool                         = false
+
+# annoying hard references
 @onready var cameraRotation                 = $CameraPivotPoint/CameraYaw.global_transform.basis.get_euler().y
 @onready var objHolderRef                   = $Roborb/ObjectHolderNode
 @onready var broom: Broom                   = $Broom
@@ -19,6 +24,7 @@ var isSlow : bool                           = false
 @onready var remote_hand: RemoteTransform3D = $Roborb/Armature/Skeleton3D/HandAttachment/RemoteHand
 @onready var ui_3d: UI3D                    = $SubViewportContainer/SubViewport/UI3D
 @onready var anim_player: AnimationPlayer   = $Roborb/AnimationPlayer
+
 ## This is the things you hold, not Roborbs body
 var bodyRef : Node3D
 var roborb_track_material: ShaderMaterial
@@ -33,6 +39,7 @@ func _ready() -> void:
 func _input (event):
 	if event.is_action_pressed("mSlowToggle"):
 		isSlow = !isSlow
+		
 		if isSlow:
 			speed = speed / 4
 			angularAccel = angularAccel / 4
@@ -42,15 +49,15 @@ func _input (event):
 			
 	if event.is_action_pressed("CheatBroom"):
 		broom.holstered = !broom.holstered
-		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else ""
-		remote_hand.remote_path =  "" if broom.holstered else remote_hand.get_path_to(broom)
+		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
+		remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
 			
 func _physics_process (delta):
 	if Input.is_action_pressed("mJump") and is_on_floor():
 		velocity.y = sqrt (maxJumpHeight * 2 * gravity)
-		
-		
+	
 	var h_input = Input.get_vector("mLeft", "mRight", "mForward", "mBack")
+	
 	if h_input:	
 		cameraRotation = $CameraPivotPoint/CameraYaw.global_transform.basis.get_euler().y	
 		direction = Vector3(h_input.x, 0.0, h_input.y).rotated(Vector3.UP, cameraRotation)
@@ -79,9 +86,11 @@ func _physics_process (delta):
 	if Input.is_action_pressed("Fire") and isHoldingItem:
 		ThrowItem ($Roborb.get_global_transform().basis.z * 10)
 		bodyRef.linear_velocity.y = throwStrength
+		bodyRef = null
 	
 	if Input.is_action_pressed("Release") and isHoldingItem:
 		ThrowItem (Vector3 (0.1, 1.0, 0.1))
+		bodyRef = null
 		
 	if Input.is_action_pressed("mJump") and is_on_floor():
 		velocity.y = sqrt (maxJumpHeight * 2 * gravity)
@@ -93,14 +102,16 @@ func _physics_process (delta):
 	roborb_track_material.set_shader_parameter("speed", 1.0 if vel > 0.1 else 0.0)
 	$Roborb/DustTrail1.amount_ratio = 0.5 if (vel > 0.1 and is_on_floor()) else 0.0
 	$Roborb/DustTrail2.amount_ratio = 0.5 if (vel > 0.1 and is_on_floor()) else 0.0
-	if not broom.holstered: anim_player.play("brushing")
+	
+	if not broom.holstered: 
+		anim_player.play("brushing")
 	else:
-		if vel > 0.5:
-			anim_player.play("walk")
-		elif vel > 5.0:
-			anim_player.play("run")
-		else:
+		if vel < 0.1:
 			anim_player.play("idle")
+		elif vel < 5.0:
+			anim_player.play("walk")
+		elif vel >= 5.0 and not isHoldingItem:
+			anim_player.play("run")
 
 func ThrowItem (strength : Vector3):
 		isHoldingItem = false
@@ -112,16 +123,16 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group ("TrashPile") && isHoldingItem == false:
 		bodyRef = body
 		isHoldingItem = true
+		anim_player.play ("walk")
 
 func get_battery() -> void:
 	ui_3d.charge_up()
 	#if batteryPower == 3:
 	broom.holstered = false
-	remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else ""
-	remote_hand.remote_path =  "" if broom.holstered else remote_hand.get_path_to(broom)
-
+	remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
+	remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
 
 func _on_ui_3d_ran_out_charge() -> void:
 	broom.holstered = true
-	remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else ""
-	remote_hand.remote_path =  "" if broom.holstered else remote_hand.get_path_to(broom)
+	remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
+	remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
