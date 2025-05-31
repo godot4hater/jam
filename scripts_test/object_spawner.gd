@@ -1,6 +1,6 @@
 extends Node3D
 
-var scene_to_instance = preload("res://object.tscn")
+var scene_to_instance = preload("res://test_trash_pile.tscn")
 var spawning = 0
 
 # Called when the node enters the scene tree for the first time.

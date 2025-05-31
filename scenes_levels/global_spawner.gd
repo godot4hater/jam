@@ -16,7 +16,7 @@ func _on_spawner_timer_timeout():
 	var childless_children = []
 	
 	for n in range(1, children_array.size()):
-		if children_array[n].get_child_count() == 1:
+		if children_array[n].get_child_count() == 0:
 			childless_children.append(children_array[n])
 			
 	if !childless_children.is_empty():
