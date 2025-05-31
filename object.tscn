@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqgmgylbt2837"]
+
+[ext_resource type="Script" uid="uid://ch26seanmb2n8" path="res://object.gd" id="1_3xuqs"]
+[ext_resource type="Script" uid="uid://bej1ffayoxt4a" path="res://csg_sphere_3d.gd" id="1_l2ofb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l2ofb"]
+radius = 0.485644
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xuqs"]
+albedo_color = Color(0.745098, 0.156863, 0.184314, 1)
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_3xuqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0144128, 0)
+shape = SubResource("SphereShape3D_l2ofb")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311341, 0)
+radius = 0.361712
+smooth_faces = false
+material = SubResource("StandardMaterial3D_3xuqs")
+script = ExtResource("1_l2ofb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
