@@ -8,11 +8,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
 height = 1.0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xhfnw"]
-radius = 0.07
+[sub_resource type="SphereShape3D" id="SphereShape3D_hqtel"]
+radius = 0.05
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0149568, 0, 0)
 script = ExtResource("1_onrkg")
 
 [node name="Roborb" parent="." instance=ExtResource("2_hqtel")]
@@ -24,7 +23,7 @@ bones/7/rotation = Quaternion(-0.0236677, 0.102107, -0.726997, 0.678593)
 bones/8/rotation = Quaternion(0.742519, -2.82195e-08, -5.0633e-07, 0.669825)
 bones/9/rotation = Quaternion(0.181913, -0.0736527, 0.118964, 0.973309)
 bones/10/rotation = Quaternion(-0.0422505, -0.0954806, 0.718843, 0.687287)
-bones/11/rotation = Quaternion(0.756182, 2.63983e-08, 5.15614e-07, 0.654362)
+bones/11/rotation = Quaternion(0.756198, 2.60007e-08, 5.15863e-07, 0.654343)
 bones/12/rotation = Quaternion(0.112768, -0.0280749, -0.0336206, 0.992656)
 bones/13/position = Vector3(0.113567, 0.171676, 0.0562547)
 bones/14/position = Vector3(-0.113567, 0.171676, 0.0562547)
@@ -32,7 +31,7 @@ bones/15/position = Vector3(0.113567, 0.171676, -0.0486416)
 bones/15/rotation = Quaternion(0.468929, -0.269372, 0.732019, -0.414358)
 bones/16/position = Vector3(-0.113567, 0.171676, -0.0486416)
 bones/16/rotation = Quaternion(-0.468929, -0.269372, 0.732019, 0.414358)
-bones/17/position = Vector3(0.496681, 0.277458, 0.248313)
+bones/17/position = Vector3(0.496682, 0.277476, 0.248269)
 bones/17/rotation = Quaternion(-0.70369, -0.16529, -0.382579, 0.575442)
 bones/19/position = Vector3(-0.489367, 0.295185, 0.245188)
 bones/19/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
@@ -131,15 +130,16 @@ script = ExtResource("2_i3pqv")
 [node name="CameraPitch" type="Node3D" parent="CameraPivotPoint/CameraYaw"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotPoint/CameraYaw/CameraPitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15149, 0)
-shape = SubResource("SphereShape3D_xhfnw")
-spring_length = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240093, 0)
+collision_mask = 2
+shape = SubResource("SphereShape3D_hqtel")
+spring_length = 2.75
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivotPoint/CameraYaw/CameraPitch/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37539, 1.76814)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37539, 1.62903)
 
 [node name="Broom" parent="." instance=ExtResource("4_e80uo")]
-transform = Transform3D(-0.707107, -0.0915494, -0.701155, 0.707107, -0.0915496, -0.701155, -9.24657e-08, -0.991583, 0.129471, 0.200375, 0.570838, 0.261902)
+transform = Transform3D(-0.707107, -0.0915494, -0.701155, 0.707107, -0.0915496, -0.701155, -9.24658e-08, -0.991583, 0.129471, 0.200375, 0.570838, 0.261902)
 holstered = true
 
 [editable path="Roborb"]
