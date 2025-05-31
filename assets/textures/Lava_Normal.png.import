@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b4kivpds8n5xj"
+path.s3tc="res://.godot/imported/Lava_Normal.png-51dc619e80de3cf8960316b40a99cd86.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "1f85f4a1a56929f94d9e95b67f84689f"
+}
+
+[deps]
+
+source_file="res://assets/textures/Lava_Normal.png"
+dest_files=["res://.godot/imported/Lava_Normal.png-51dc619e80de3cf8960316b40a99cd86.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/mesh/Lava_TrashLava Normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://eiwo1fbmwlx3"]
+
+[ext_resource type="PackedScene" uid="uid://3nycdrn4oovy" path="res://assets/Battery.glb" id="1_expsh"]
+[ext_resource type="Script" uid="uid://vfik1v1qbniv" path="res://ui_3d.gd" id="1_o1ogo"]
+[ext_resource type="PackedScene" uid="uid://cf8uvrt83r77o" path="res://assets/UIBattery.glb" id="2_o1ogo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_expsh"]
+sky_top_color = Color(0.460129, 0.618055, 0.722656, 1)
+sky_horizon_color = Color(0.836579, 0.870145, 0.889378, 1)
+ground_bottom_color = Color(0.226563, 0.202902, 0.175232, 1)
+ground_horizon_color = Color(0.836579, 0.870145, 0.889378, 1)
+
+[sub_resource type="Sky" id="Sky_o1ogo"]
+sky_material = SubResource("ProceduralSkyMaterial_expsh")
+
+[sub_resource type="Environment" id="Environment_108jm"]
+background_mode = 2
+sky = SubResource("Sky_o1ogo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_108jm"]
+size = Vector2(0.05, 0.125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ih0du"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="UI3D" type="Marker3D"]
+script = ExtResource("1_o1ogo")
+mario_star = true
+charge = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_108jm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Battery2" parent="." instance=ExtResource("1_expsh")]
+visible = false
+
+[node name="UIBattery" parent="." instance=ExtResource("2_o1ogo")]
+transform = Transform3D(0.960852, 0, 0.277063, 0.119523, 0.902164, -0.414505, -0.249956, 0.431393, 0.866846, -0.588216, 1.06768, 1.15085)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UIBattery"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 0.2)
+mesh = SubResource("QuadMesh_108jm")
+surface_material_override/0 = SubResource("StandardMaterial3D_ih0du")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1xyoa0a24hom"]
+
+[ext_resource type="Script" uid="uid://bycboaeq3ptob" path="res://scripts_prod/battery_pickup.gd" id="1_w6ge3"]
+[ext_resource type="PackedScene" uid="uid://3nycdrn4oovy" path="res://assets/Battery.glb" id="2_u2dai"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i6l3c"]
+radius = 0.35
+
+[node name="BatteryPickup" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_w6ge3")
+metadata/_custom_type_script = "uid://bycboaeq3ptob"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_i6l3c")
+
+[node name="Battery2" parent="." instance=ExtResource("2_u2dai")]
+transform = Transform3D(1.29904, 0.75, 0, -0.75, 1.29904, 0, 0, 0, 1.5, 0, 0.5, 0)
+
+[node name="Battery" parent="Battery2" index="0"]
+cast_shadow = 0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Battery2"]
+transform = Transform3D(0.57735, -0.333333, 0, 0.333333, 0.57735, 0, 0, 0, 0.666667, -0.00653358, 0.016893, 0.362072)
+light_color = Color(0, 1, 0.015625, 1)
+
+[editable path="Battery2"]

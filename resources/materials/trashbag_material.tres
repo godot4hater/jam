@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bbysy0v7qybv5"]
+
+[ext_resource type="Texture2D" uid="uid://dq7q1ejv42jqo" path="res://assets/textures/TrashBag_Colour.png" id="1_0ewmr"]
+[ext_resource type="Shader" uid="uid://b2mphctoaueqf" path="res://resources/shaders/trash_shader.gdshader" id="1_qsccx"]
+[ext_resource type="Texture2D" uid="uid://biw7i0kqccywq" path="res://assets/textures/TrashBag_Roughness.png" id="2_3eyas"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trxfm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qsccx"]
+seamless = true
+noise = SubResource("FastNoiseLite_trxfm")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qsccx")
+shader_parameter/albedo_texture = ExtResource("1_0ewmr")
+shader_parameter/roughness_texture = ExtResource("2_3eyas")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_qsccx")
