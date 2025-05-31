@@ -1,40 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://chndx0ettdpdg"]
+[gd_scene load_steps=8 format=3 uid="uid://chndx0ettdpdg"]
 
 [ext_resource type="Script" uid="uid://dfh7jovbdhpbx" path="res://scripts_prod/player_script.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="2_hqtel"]
 [ext_resource type="Script" uid="uid://dqu7xmafrsh0p" path="res://scripts_prod/camera_mouse_controller.gd" id="2_i3pqv"]
-[ext_resource type="ArrayMesh" uid="uid://lona1ycjai2" path="res://resources/mesh/dust_cloud.res" id="3_tdg3f"]
 [ext_resource type="PackedScene" uid="uid://cj0vdf4bgg7vy" path="res://broom_test.tscn" id="4_e80uo"]
-[ext_resource type="PackedScene" uid="uid://eiwo1fbmwlx3" path="res://ui_3d.tscn" id="5_cxr5p"]
-
-[sub_resource type="Gradient" id="Gradient_cxr5p"]
-offsets = PackedFloat32Array(0, 0.555891, 1)
-colors = PackedColorArray(0.783458, 0.783458, 0.783458, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tdg3f"]
-gradient = SubResource("Gradient_cxr5p")
-
-[sub_resource type="Curve" id="Curve_cxr5p"]
-_data = [Vector2(0, 0.914286), 0.0, 0.0, 0, 0, Vector2(1, 0.546512), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_tdg3f"]
-curve = SubResource("Curve_cxr5p")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dtqjt"]
-lifetime_randomness = 0.06
-particle_flag_rotate_y = true
-emission_shape = 1
-emission_sphere_radius = 0.1
-angle_min = -180.0
-angle_max = 180.0
-gravity = Vector3(0, 1, 0)
-damping_min = 0.1
-damping_max = 0.2
-scale_min = 0.8
-scale_max = 1.2
-scale_curve = SubResource("CurveTexture_tdg3f")
-color_ramp = SubResource("GradientTexture1D_tdg3f")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
 height = 1.0
@@ -54,31 +23,25 @@ script = ExtResource("1_onrkg")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Roborb/Armature" index="0"]
-bones/2/rotation = Quaternion(0.133589, -0.358498, -0.0412644, 0.923001)
-bones/3/rotation = Quaternion(-0.148022, 0.347842, 0.0327577, 0.925215)
-bones/4/rotation = Quaternion(0.45159, 0.127292, 0.543896, 0.69573)
-bones/5/rotation = Quaternion(-0.533742, 0.249908, 0.803719, 0.0818624)
-bones/7/rotation = Quaternion(-0.0730481, -0.227366, -0.850121, 0.469323)
-bones/8/rotation = Quaternion(0.71318, -8.13824e-09, -4.52819e-07, 0.700981)
-bones/9/rotation = Quaternion(-0.380488, -0.758642, 0.0530901, 0.526186)
-bones/10/position = Vector3(-0.169274, 0.155807, -0.0423918)
-bones/10/rotation = Quaternion(0.25777, 0.158523, 0.356233, 0.884038)
-bones/11/rotation = Quaternion(0.748027, 3.86988e-08, 5.41871e-07, 0.663668)
-bones/12/rotation = Quaternion(-0.195882, 0.65414, 0.289822, 0.670623)
-bones/13/position = Vector3(0.114068, 0.165933, 0.0573836)
-bones/13/rotation = Quaternion(-0.468582, 0.255517, 0.737254, -0.414244)
-bones/14/position = Vector3(-0.114068, 0.165933, 0.0573836)
-bones/14/rotation = Quaternion(0.468582, 0.255517, 0.737254, 0.414244)
-bones/15/position = Vector3(0.112971, 0.15669, -0.117907)
-bones/15/rotation = Quaternion(0.322424, -0.475281, 0.654918, -0.491155)
-bones/16/position = Vector3(-0.112971, 0.178381, -0.1149)
-bones/16/rotation = Quaternion(-0.356768, -0.436934, 0.608341, 0.558325)
-bones/17/position = Vector3(0.0446598, 0.178914, 0.547392)
-bones/17/rotation = Quaternion(-0.0736764, 0.724713, -0.608054, 0.315647)
-bones/18/position = Vector3(0.48862, 0.177639, -0.282376)
-bones/19/position = Vector3(-0.376248, 0.38487, 0.199505)
+bones/3/rotation = Quaternion(-0.000645059, 0.00203619, 0.0238723, 0.999713)
+bones/4/rotation = Quaternion(0.459301, 0.118356, 0.515678, 0.71352)
+bones/5/rotation = Quaternion(-0.519338, 0.255472, 0.814184, 0.046106)
+bones/7/rotation = Quaternion(0.0477986, 0.0299629, -0.708317, 0.703637)
+bones/8/rotation = Quaternion(0.393481, -0.0767434, 0.0692299, 0.913504)
+bones/9/rotation = Quaternion(0.181913, -0.0736527, 0.118964, 0.973309)
+bones/10/rotation = Quaternion(0.0360672, -0.0167053, 0.70801, 0.705083)
+bones/11/rotation = Quaternion(0.401562, 0.051794, -0.0448174, 0.913267)
+bones/12/rotation = Quaternion(0.112768, -0.0280749, -0.0336206, 0.992656)
+bones/13/position = Vector3(0.113567, 0.171676, 0.0562547)
+bones/14/position = Vector3(-0.113567, 0.171676, 0.0562547)
+bones/15/position = Vector3(0.113567, 0.171676, -0.0486416)
+bones/15/rotation = Quaternion(0.468929, -0.269372, 0.732019, -0.414358)
+bones/16/position = Vector3(-0.113567, 0.171676, -0.0486416)
+bones/16/rotation = Quaternion(-0.468929, -0.269372, 0.732019, 0.414358)
+bones/17/position = Vector3(0.496682, 0.277476, 0.248269)
+bones/17/rotation = Quaternion(-0.70369, -0.16529, -0.382579, 0.575442)
+bones/19/position = Vector3(-0.489367, 0.295185, 0.245188)
 bones/19/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/20/position = Vector3(-0.351493, 0.676352, -0.118071)
 
 [node name="HandOpenLeft" parent="Roborb/Armature/Skeleton3D" index="3"]
 visible = false
@@ -90,7 +53,7 @@ visible = false
 visible = false
 
 [node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Roborb/Armature/Skeleton3D" index="6"]
-setting_count = 1
+setting_count = 3
 settings/0/root_bone_name = "antenna1"
 settings/0/root_bone = 4
 settings/0/end_bone_name = "antenna3"
@@ -110,22 +73,52 @@ settings/0/gravity/damping_curve = null
 settings/0/gravity/direction = Vector3(0, -1, 0)
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
+settings/1/root_bone_name = "upper_arm.l"
+settings/1/root_bone = 7
+settings/1/end_bone_name = "hand.l"
+settings/1/end_bone = 9
+settings/1/extend_end_bone = false
+settings/1/center_from = 0
+settings/1/individual_config = false
+settings/1/rotation_axis = 3
+settings/1/radius/value = 0.02
+settings/1/radius/damping_curve = null
+settings/1/stiffness/value = 1.0
+settings/1/stiffness/damping_curve = null
+settings/1/drag/value = 0.4
+settings/1/drag/damping_curve = null
+settings/1/gravity/value = 0.0
+settings/1/gravity/damping_curve = null
+settings/1/gravity/direction = Vector3(0, -1, 0)
+settings/1/enable_all_child_collisions = true
+settings/1/exclude_collision_count = 0
+settings/2/root_bone_name = "upper_arm.r"
+settings/2/root_bone = 10
+settings/2/end_bone_name = "hand.r"
+settings/2/end_bone = 12
+settings/2/extend_end_bone = false
+settings/2/center_from = 0
+settings/2/individual_config = false
+settings/2/rotation_axis = 3
+settings/2/radius/value = 0.02
+settings/2/radius/damping_curve = null
+settings/2/stiffness/value = 1.0
+settings/2/stiffness/damping_curve = null
+settings/2/drag/value = 0.4
+settings/2/drag/damping_curve = null
+settings/2/gravity/value = 0.0
+settings/2/gravity/damping_curve = null
+settings/2/gravity/direction = Vector3(0, -1, 0)
+settings/2/enable_all_child_collisions = true
+settings/2/exclude_collision_count = 0
 
 [node name="BackAttachment" type="BoneAttachment3D" parent="Roborb/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.739552, -0.0196085, -0.672813, -0.171957, 0.960903, -0.217018, 0.650763, 0.276191, 0.707266, 0, 0.224043, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224043, 0)
 bone_name = "spine2"
 bone_idx = 2
 
-[node name="RemoteBack" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/BackAttachment"]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/BackAttachment"]
 transform = Transform3D(0.707107, 0.0915495, 0.701155, 0.707107, -0.0915496, -0.701155, 3.06485e-08, 0.991583, -0.129471, -0.200375, 0.346795, -0.261902)
-
-[node name="HandAttachment" type="BoneAttachment3D" parent="Roborb/Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.837785, -0.347478, 0.421158, 0.382029, -0.924147, -0.00252318, 0.390089, 0.158781, 0.906983, -0.376255, 0.384865, 0.199515)
-bone_name = "hand.r"
-bone_idx = 12
-
-[node name="RemoteHand" type="RemoteTransform3D" parent="Roborb/Armature/Skeleton3D/HandAttachment"]
-transform = Transform3D(-0.899008, 0.311803, -0.307511, -0.37187, -0.914391, 0.160006, -0.231296, 0.2582, 0.937995, -0.00670711, 0.107656, 0.121649)
 remote_path = NodePath("../../../../../Broom")
 
 [node name="AnimationPlayer" parent="Roborb" index="1"]
@@ -133,20 +126,6 @@ autoplay = "idle"
 
 [node name="ObjectHolderNode" type="Node3D" parent="Roborb"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0392675, 0.412549, 0.676226)
-
-[node name="DustTrail1" type="GPUParticles3D" parent="Roborb"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224685, -0.02585, -0.181969)
-amount = 40
-randomness = 0.06
-process_material = SubResource("ParticleProcessMaterial_dtqjt")
-draw_pass_1 = ExtResource("3_tdg3f")
-
-[node name="DustTrail2" type="GPUParticles3D" parent="Roborb"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215108, -0.02585, -0.181969)
-amount = 40
-randomness = 0.06
-process_material = SubResource("ParticleProcessMaterial_dtqjt")
-draw_pass_1 = ExtResource("3_tdg3f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -170,7 +149,8 @@ spring_length = 2.75
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37539, 1.62903)
 
 [node name="Broom" parent="." instance=ExtResource("4_e80uo")]
-transform = Transform3D(-0.784981, -0.16525, -0.597074, 0.000798355, 0.963498, -0.267714, 0.61952, -0.210627, -0.756195, 0.35681, 0.282506, -0.324326)
+transform = Transform3D(-0.707107, -0.0915494, -0.701155, 0.707107, -0.0915496, -0.701155, -9.24658e-08, -0.991583, 0.129471, 0.200375, 0.570838, 0.261902)
+holstered = true
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -178,27 +158,6 @@ transform = Transform3D(-0.784981, -0.16525, -0.597074, 0.000798355, 0.963498, -
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.638979, 0)
 shape = SubResource("SphereShape3D_sweqy")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-gui_disable_input = true
-size = Vector2i(1024, 720)
-render_target_update_mode = 4
-
-[node name="UI3D" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_cxr5p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
-
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="ran_out_charge" from="SubViewportContainer/SubViewport/UI3D" to="." method="_on_ui_3d_ran_out_charge"]
 
 [editable path="Roborb"]
