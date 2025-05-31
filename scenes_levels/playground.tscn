@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://ba0g65vctukut"]
+[gd_scene load_steps=16 format=3 uid="uid://ba0g65vctukut"]
 
+[ext_resource type="PackedScene" uid="uid://d1xyoa0a24hom" path="res://battery_pickup.tscn" id="1_bieh5"]
 [ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_eq5wj"]
 [ext_resource type="PackedScene" uid="uid://cjhli42vgwyd6" path="res://test_trash_pile.tscn" id="2_x7g8w"]
 [ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="3_loya5"]
@@ -33,6 +34,9 @@ albedo_color = Color(0.6105, 1, 0.43, 1)
 albedo_color = Color(0.6105, 1, 0.43, 1)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="BatteryPickup" parent="." instance=ExtResource("1_bieh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7491, 4.28323, 32.2471)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_eq5wj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34.5607)
