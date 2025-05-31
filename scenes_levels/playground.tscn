@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ba0g65vctukut"]
+[gd_scene load_steps=18 format=3 uid="uid://ba0g65vctukut"]
 
 [ext_resource type="PackedScene" uid="uid://d1xyoa0a24hom" path="res://battery_pickup.tscn" id="1_bieh5"]
 [ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://Player.tscn" id="1_eq5wj"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="3_loya5"]
 [ext_resource type="Script" uid="uid://cn7v2d3cy3ysi" path="res://scenes_levels/global_spawner.gd" id="3_x6yrc"]
 [ext_resource type="Script" uid="uid://yem6al4c0yf0" path="res://scenes_levels/spawner_timer.gd" id="4_bieh5"]
+[ext_resource type="Script" uid="uid://dpcf14jjm4p06" path="res://scenes_levels/chutes.gd" id="7_5b3i4"]
+[ext_resource type="PackedScene" uid="uid://ddsks3vhmt8yq" path="res://chute.tscn" id="7_f1172"]
 
 [sub_resource type="Environment" id="Environment_eq5wj"]
 
@@ -36,7 +38,7 @@ albedo_color = Color(0.6105, 1, 0.43, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="BatteryPickup" parent="." instance=ExtResource("1_bieh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7491, 4.28323, 32.2471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7491, 4.28323, 33.2412)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_eq5wj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34.5607)
@@ -165,5 +167,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9881, -24.3472, -9.18346)
 
 [node name="Node3D7" parent="globalSpawner" instance=ExtResource("3_loya5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6937, -24.2167, -13.4612)
+
+[node name="chute" type="Node3D" parent="."]
+script = ExtResource("7_5b3i4")
+
+[node name="Node3D" parent="chute" instance=ExtResource("7_f1172")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3964, 7, 33.6431)
+
+[node name="Node3D2" parent="chute" instance=ExtResource("7_f1172")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7819, 14.617, -29.7539)
 
 [connection signal="timeout" from="globalSpawner/spawnerTimer" to="globalSpawner" method="_on_spawner_timer_timeout"]
