@@ -32,8 +32,8 @@ func _physics_process (delta):
 		velocity.z = lerp (velocity.z, direction.z * speed, delta * accel)
 		
 		$Roborb.rotation.y = lerp_angle ($Roborb.rotation.y, 
-												 atan2 (direction.x, direction.z), 
-												 delta * angularAccel)
+										 atan2 (direction.x, direction.z), 
+										 delta * angularAccel)
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
