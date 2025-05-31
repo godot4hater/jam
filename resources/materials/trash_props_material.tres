@@ -1,10 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cipbjtl3703uh"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://lmkqulh86dfb"]
 
-[ext_resource type="Texture2D" uid="uid://banki6olw4cdy" path="res://assets/Roborb_sketch.png" id="1_trxfm"]
+[ext_resource type="Texture2D" uid="uid://bd5341lc1gjin" path="res://assets/TrashProps_Untitled.png" id="1_5m3y8"]
 
-[sub_resource type="Shader" id="Shader_dvire"]
+[sub_resource type="Shader" id="Shader_0ij0y"]
 code = "shader_type spatial;
-render_mode cull_disabled;
+render_mode cull_back;
 
 uniform sampler2D albedo_texture: source_color, filter_nearest;
 uniform sampler2D noise_texture: source_color;
@@ -12,7 +12,6 @@ uniform sampler2D noise_texture: source_color;
 void vertex(){
 	float r = texture(noise_texture, vec2(UV.x + (TIME * 0.12), UV.y)).r;
 	r = r * 2.0 - 1.0;
-
 	VERTEX += (NORMAL) * (r * 0.01);
 }
 
@@ -30,6 +29,6 @@ noise = SubResource("FastNoiseLite_trxfm")
 
 [resource]
 render_priority = 0
-shader = SubResource("Shader_dvire")
-shader_parameter/albedo_texture = ExtResource("1_trxfm")
+shader = SubResource("Shader_0ij0y")
+shader_parameter/albedo_texture = ExtResource("1_5m3y8")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_c15c0")

@@ -16,7 +16,8 @@ uniform sampler2D noise_texture: source_color;
 
 void vertex(){
 	float r = texture(noise_texture, vec2(UV.x + (TIME * 0.12), UV.y)).r;
-	VERTEX += (NORMAL) * (r * 0.025);
+	r = r * 2.0 - 1.0;
+	VERTEX += (NORMAL) * (r * 0.01);
 }
 
 void fragment() {
