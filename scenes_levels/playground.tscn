@@ -178,3 +178,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3964, 7, 33.6431)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7819, 14.617, -29.7539)
 
 [connection signal="timeout" from="globalSpawner/spawnerTimer" to="globalSpawner" method="_on_spawner_timer_timeout"]
+[connection signal="property_list_changed" from="chute" to="CharacterBody3D" method="_on_chute_property_list_changed"]
