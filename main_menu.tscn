@@ -15,11 +15,11 @@ void vertex() {
 
 void fragment() {
 	vec4 texture_color = texture(TEXTURE, vec2(UV.x + (TIME * 0.02), UV.y - (TIME * 0.01)));
-	
+
 	vec4 gradient_color = texture(palette_gradient, vec2(1.2 - UV.y, UV.x));
-	
+
 	texture_color *= gradient_color;
-	
+
 	COLOR = texture_color;
 }
 
