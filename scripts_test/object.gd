@@ -10,5 +10,5 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	queue_free()
