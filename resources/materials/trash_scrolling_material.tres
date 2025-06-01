@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://lorj1pw8akxv"]
+
+[ext_resource type="Shader" uid="uid://b2mphctoaueqf" path="res://resources/shaders/trash_shader.gdshader" id="1_ufijh"]
+[ext_resource type="Texture2D" uid="uid://dn663jyewupe7" path="res://assets/textures/TrashLava Color.png" id="2_0lg5v"]
+[ext_resource type="Texture2D" uid="uid://d8dksyavx75m" path="res://assets/textures/TrashLava Normal without Bump.png" id="3_r3t2f"]
+[ext_resource type="Texture2D" uid="uid://b30kh4xrj8etn" path="res://assets/textures/TrashLava Roughness.png" id="4_ajacl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ufijh")
+shader_parameter/albedo_texture = ExtResource("2_0lg5v")
+shader_parameter/roughness = 0.94
+shader_parameter/use_roughness_texture = false
+shader_parameter/roughness_texture = ExtResource("4_ajacl")
+shader_parameter/metallic = 0.0
+shader_parameter/use_metallic_texture = false
+shader_parameter/normalmap = 1.0
+shader_parameter/normal_texture = ExtResource("3_r3t2f")
+shader_parameter/scroll_x = 4.75e-07
+shader_parameter/scroll_y = -0.0199995

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dknfg648rygen"]
+
+[ext_resource type="ArrayMesh" uid="uid://dyopmppt7t5ks" path="res://resources/mesh/props/bean_box.res" id="1_2dkx0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wfbhu"]
+bounce = 0.3
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nnwav"]
+points = PackedVector3Array(-0.271869, -0.200493, -0.611334, -0.610677, -0.200493, -0.452693, -0.274272, 0.257983, -0.380112, 0.409619, -0.200493, -0.495435, -0.730287, -0.200493, 0.223692, -0.326735, 0.265649, -0.0759637, -0.0434602, 0.25196, -0.0409406, 0.372374, 0.22472, -0.278729, 0.625345, -0.200493, -0.220549, -0.436867, -0.200493, 0.471849, -0.375727, 0.257983, 0.271618, -0.349162, 0.261542, 0.0620551, 0.270918, 0.22472, 0.373001, 0.633489, -0.200493, 0.432333, 0.281865, -0.200493, 0.565628)
+
+[node name="RigidBeanBox" type="RigidBody3D" groups=["TrashPile"]]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_wfbhu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = ExtResource("1_2dkx0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nnwav")

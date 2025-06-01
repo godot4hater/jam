@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2weeanshona"]
+
+[ext_resource type="ArrayMesh" uid="uid://caq1pklxx008s" path="res://resources/mesh/Platform.res" id="1_emilk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo78u"]
+size = Vector3(4, 0.5, 4)
+
+[node name="Platform" type="Node3D"]
+
+[node name="Platform1x1_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = ExtResource("1_emilk")
+skeleton = NodePath("")
+
+[node name="Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.247, 0)
+shape = SubResource("BoxShape3D_xo78u")
