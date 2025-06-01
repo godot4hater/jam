@@ -37,5 +37,5 @@ func _on_spawner_timer_timeout():
 	else:
 		print("No space!")
 		
-	$spawnerTimer.wait_time = 15.0
+	$spawnerTimer.wait_time = 5.0
 	$spawnerTimer.start()
