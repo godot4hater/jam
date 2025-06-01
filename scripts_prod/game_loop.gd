@@ -56,23 +56,35 @@ func _on_timer_timeout() -> void:
 	putTimeInPlayersLabel.emit (ConvertTime (timeLeft))
 	
 	match timeLeft:
-		480.0:
+		540.0:
 			allowRaise = true
 			moveValue = 1.5
-		360.0:
+		480.0:
 			allowRaise = true
-			moveValue = 5.0
-		240.0:
+			moveValue = 3.5
+		420:
 			allowRaise = true
-			moveValue = 7.0
-		120.0:
+			moveValue = 4.5
+		360:
+			allowRaise = true
+			moveValue = 5.5
+		300:
+			allowRaise = true
+			moveValue = 6.2
+		240:
 			bgmPlay.stream = music2
 			bgmPlay.play()
 			allowRaise = true
-			moveValue = 9.0
+			moveValue = 7.0
+		200:
+			allowRaise = true
+			moveValue = 7.5
+		100:
+			allowRaise = true
+			moveValue = 8.5
 		0.0:
 			allowRaise = true
-			moveValue = 15.0
+			moveValue = 17.0
 
 func _on_timer_timeout2() -> void:
 	riseRate = 0.012

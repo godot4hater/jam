@@ -10,6 +10,7 @@ size = Vector3(98.0022, 104.379, 78.9972)
 size = Vector3(83.5526, 2.23828, 79.5112)
 
 [node name="Lava" type="AnimatableBody3D"]
+transform = Transform3D(1.22436, 0, 0, 0, 1, 0, 0, 0, 1.24819, 0, 0, 0)
 collision_layer = 5
 collision_mask = 5
 

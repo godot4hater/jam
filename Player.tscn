@@ -79,6 +79,10 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 [node name="DustCloud" parent="Roborb" index="0"]
 visible = false
 
+[node name="Skeleton3D" parent="Roborb/Armature" index="0"]
+bones/4/rotation = Quaternion(0.323769, 0.183658, 0.709267, 0.598652)
+bones/5/rotation = Quaternion(0.793545, -0.126202, -0.569467, -0.173395)
+
 [node name="HandOpenLeft" parent="Roborb/Armature/Skeleton3D" index="3"]
 visible = false
 
@@ -172,7 +176,7 @@ script = ExtResource("2_i3pqv")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivotPoint/CameraYaw/CameraPitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240093, 0)
-collision_mask = 2
+collision_mask = 3
 shape = SubResource("SphereShape3D_hqtel")
 spring_length = 2.75
 

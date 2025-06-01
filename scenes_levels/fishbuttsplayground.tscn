@@ -271,7 +271,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.39
 transform = Transform3D(-4.29366e-08, -0.18745, 0.982274, -8.1937e-09, 0.982274, 0.18745, -1, 0, -4.37114e-08, -39.9397, 40.8101, 0.57025)
 
 [node name="Node3D6" parent="chute" instance=ExtResource("8_jvyxe")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 35.9912, 48.7772, 39.8564)
+transform = Transform3D(-1, 0, 8.74228e-08, 1.78597e-08, 0.97891, 0.204291, -8.55791e-08, 0.204291, -0.97891, 35.9912, 48.7772, 51.3442)
 
 [node name="Node3D5" parent="chute" instance=ExtResource("8_jvyxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9912, 47.0244, -41.8495)
@@ -448,7 +448,16 @@ transform = Transform3D(1, 0, 0, 0, 0.597248, -0.0959852, 0, 0.0358283, 1.60005,
 transform = Transform3D(-4.21057e-08, 0.194903, 2.57026, 1.17387e-08, 0.565687, -0.885565, -1, -1.5661e-09, -1.18618e-07, 12.1129, 11.5997, 34.2646)
 
 [node name="Beam9" parent="PrettyPlatforms" instance=ExtResource("12_c1c48")]
-transform = Transform3D(1.40839, 0, 0, 0, 0.72202, 0, 0, 0, 3.4646, -22.867, 21.4727, 63.2292)
+transform = Transform3D(1.40839, 0, 0, 0, 0.72202, 0, 0, 0, 4.48144, -22.8622, 21.4694, 63.226)
+
+[node name="Beam23" parent="PrettyPlatforms" instance=ExtResource("12_c1c48")]
+transform = Transform3D(1.30038, -5.9268e-09, -1.33059, -0.535979, 0.0971403, -3.16982, 0.072772, 0.715456, 0.43038, -29.3044, -10.2103, 27.0551)
+
+[node name="Beam24" parent="PrettyPlatforms" instance=ExtResource("12_c1c48")]
+transform = Transform3D(0.409079, 0.690743, 0.0688223, -0.535979, 0.0971403, -3.16982, -1.2365, 0.186416, 1.39677, -12.2632, -8.57973, 29.7205)
+
+[node name="Beam25" parent="PrettyPlatforms" instance=ExtResource("12_c1c48")]
+transform = Transform3D(-0.102051, -0.715274, -0.400292, -0.535979, 0.0971403, -3.16982, 1.29841, -0.0161194, -1.33995, -24.3457, -5.64272, 0.426842)
 
 [node name="Beam8" parent="PrettyPlatforms" instance=ExtResource("12_c1c48")]
 transform = Transform3D(-0.0120457, 0.194903, 2.57006, 0.00415024, 0.565687, -0.885493, -0.999919, -1.79881e-09, -0.0346359, 12.1129, 11.5997, 36.2455)

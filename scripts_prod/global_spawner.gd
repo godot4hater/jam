@@ -7,15 +7,13 @@ func _ready():
 		var children_array = get_children()
 		var random : int
 		
-		var trashbags = 10
+		var trashbags = 11
 		while trashbags > 0:
 			random = randi() % (children_array.size()-1)
 			random += 1
 			if children_array[random].get_child_count() == 0:
-				print(random)
 				children_array[random].instance_object()
 				children_array.remove_at(random)
-				print(children_array.size())
 				trashbags -= 1
 		
 
