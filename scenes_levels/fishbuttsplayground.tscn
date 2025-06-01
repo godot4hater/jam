@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://xdosxck0650c"]
+[gd_scene load_steps=27 format=3 uid="uid://xdosxck0650c"]
 
 [ext_resource type="Script" uid="uid://c08yb5irrkymu" path="res://scripts_prod/game_loop.gd" id="1_oaaea"]
 [ext_resource type="PackedScene" uid="uid://d1xyoa0a24hom" path="res://prefabs/battery_pickup.tscn" id="2_8b6t5"]
+[ext_resource type="Material" uid="uid://ds3e0t0a14r1l" path="res://resources/materials/trash_scrolling_material.tres" id="3_oaaea"]
 [ext_resource type="Script" uid="uid://cn7v2d3cy3ysi" path="res://scripts_prod/global_spawner.gd" id="4_g8dkq"]
 [ext_resource type="Script" uid="uid://yem6al4c0yf0" path="res://scripts_prod/spawner_timer.gd" id="5_dkcii"]
 [ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="6_i564o"]
@@ -84,6 +85,102 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25836, -0.731922, 1.14709)
 use_collision = true
 size = Vector3(75, 0.035, 75)
 material = SubResource("StandardMaterial3D_eq5wj")
+
+[node name="CSGBox3D72" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 57.6129, 58.2524, 0)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D74" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(8.74228e-08, -2, -1.74846e-07, -2, -8.74228e-08, 0, -7.64274e-15, 1.74846e-07, -2, -49.7951, 58.2524, 6.95e-15)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D73" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(3.82137e-15, 8.74228e-08, -2, 2, -8.74228e-08, 0, -8.74228e-08, -2, -8.74228e-08, -5.02804e-07, 58.2524, 61.2978)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D75" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(3.82137e-15, 8.74228e-08, 2, 2, -8.74228e-08, 0, 8.74228e-08, 2, -8.74228e-08, 0, 58.2524, -57.839)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D76" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 57.6129, 201.66, 0)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D77" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(8.74228e-08, -2, -1.74846e-07, -2, -8.74228e-08, 0, -7.64274e-15, 1.74846e-07, -2, -49.7951, 201.66, 6.95e-15)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D78" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(3.82137e-15, 8.74228e-08, -2, 2, -8.74228e-08, 0, -8.74228e-08, -2, -8.74228e-08, -5.02804e-07, 201.66, 61.2978)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D79" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(3.82137e-15, 8.74228e-08, 2, 2, -8.74228e-08, 0, 8.74228e-08, 2, -8.74228e-08, 0, 201.66, -57.839)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D80" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-1.33267, -1.4913, 0, 1.4913, -1.33267, 0, 0, 0, 2, 57.6129, 329.415, 0)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D81" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-1.33202, -1.49188, -1.30424e-07, -1.49188, 1.33202, 1.16449e-07, -1.13177e-15, 1.74846e-07, -2, -49.7951, 329.415, 6.95e-15)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D82" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(3.82137e-15, 8.74228e-08, -2, 1.38738, -1.44055, -6.29682e-08, -1.44055, -1.38738, -6.06444e-08, -5.02804e-07, 329.415, 61.2978)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D83" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-3.48487e-15, 8.74228e-08, 2, 1.42501, -1.40334, 6.13418e-08, 1.40334, 1.42501, -6.22891e-08, 0, 329.415, -57.839)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D84" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-1.33139, 1.49049, -0.0764876, 1.48803, 1.33359, 0.0854866, 0.11471, 0, -1.99671, -53.704, 17.8308, 0)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D85" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(-1.33105, 1.4927, 0.0127775, -1.49263, -1.33111, 0.0143288, 0.0191984, 1.74408e-07, 1.99991, 53.704, 14.7474, 0)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D86" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(0.199706, -0.000880226, -1.99, 1.38051, 1.44054, 0.137904, 1.43328, -1.38738, 0.144451, 3.90891, 19.4397, 61.2978)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
+
+[node name="CSGBox3D87" type="CSGBox3D" parent="Geo"]
+transform = Transform3D(0.0834741, -0.000857495, 1.99826, 1.42379, 1.40334, -0.0588745, -1.40209, 1.42501, 0.0591815, 3.90891, 20.6176, -57.839)
+use_collision = true
+size = Vector3(75, 0.035, 75)
+material = ExtResource("3_oaaea")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Geo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4387, 1.58875, 32.9716)
