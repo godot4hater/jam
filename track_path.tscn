@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://swj5nygmpgfo"]
-
-[ext_resource type="PackedScene" uid="uid://c47vm86q82m83" path="res://assets/Roborb.glb" id="1_1yexo"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="Roborb" parent="." instance=ExtResource("1_1yexo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0159522, 0, 0.0972258)

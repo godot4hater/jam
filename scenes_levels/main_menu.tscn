@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj51ylc1yphm0"]
+
+[ext_resource type="Texture2D" uid="uid://m3rm0ff063rb" path="res://assets/textures/background_test.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://k6lqqsx62p5d" path="res://scripts_prod/main_menu.gd" id="2_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://ba0g65vctukut" path="res://scenes_levels/playground.tscn" id="3_fu7sn"]
+
+[sub_resource type="Shader" id="Shader_7vrkn"]
+code = "shader_type canvas_item;
+
+uniform sampler2D palette_gradient: source_color;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, vec2(UV.x + (TIME * 0.02), UV.y - (TIME * 0.01)));
+
+	vec4 gradient_color = texture(palette_gradient, vec2(1.2 - UV.y, UV.x));
+
+	texture_color *= gradient_color;
+
+	COLOR = texture_color;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="Gradient" id="Gradient_fu7sn"]
+offsets = PackedFloat32Array(0, 0.230321, 0.723032, 1)
+colors = PackedColorArray(0.675781, 0, 0, 1, 0.921875, 0.601886, 0.050415, 1, 0.159531, 0.800781, 0.184579, 1, 0.638184, 1, 0.390625, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jix8l"]
+gradient = SubResource("Gradient_fu7sn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glbon"]
+shader = SubResource("Shader_7vrkn")
+shader_parameter/palette_gradient = SubResource("GradientTexture1D_jix8l")
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("2_7vrkn")
+GAME_PACKED = ExtResource("3_fu7sn")
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_glbon")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_06t4h")
+stretch_mode = 1
+
+[node name="PlayGame" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 130.0
+offset_right = 154.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+
+[node name="Options" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 224.0
+offset_right = 86.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS	"
+
+[node name="Quit" type="Button" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 422.0
+offset_top = 300.0
+offset_right = 497.0
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+
+[connection signal="pressed" from="Background/PlayGame" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="Background/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Background/Quit" to="." method="_on_quit_pressed"]
