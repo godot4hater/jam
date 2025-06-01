@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c5coudf78rrbc" path="res://Player.tscn" id="9_rw3x2"]
 [ext_resource type="PackedScene" uid="uid://cj7f01yfo6oh4" path="res://prefabs/lava.tscn" id="10_7sn14"]
 [ext_resource type="PackedScene" path="res://prefabs/platform.tscn" id="11_8b6t5"]
-[ext_resource type="PackedScene" uid="uid://bl60omjgylp3k" path="res://prefabs/beam.tscn" id="12_c1c48"]
+[ext_resource type="PackedScene" path="res://prefabs/beam.tscn" id="12_c1c48"]
 
 [sub_resource type="Environment" id="Environment_eq5wj"]
 ambient_light_source = 2
@@ -289,7 +289,7 @@ transform = Transform3D(-0.999914, 0, -0.0131419, 0, 1, 0, 0.0131419, 0, -0.9999
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.542408, -0.221785, 33.6205)
 
 [node name="Lava" parent="." instance=ExtResource("10_7sn14")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+transform = Transform3D(1.49359, 0, 0, 0, 1, 0, 0, 0, 1.52193, -5.93268, -9, 0)
 
 [node name="PrettyPlatforms" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
