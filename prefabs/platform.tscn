@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2weeanshona"]
+
+[ext_resource type="PackedScene" uid="uid://ttywexdadit4" path="res://assets/mesh/Platform.glb" id="1_emilk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo78u"]
+size = Vector3(4, 0.5, 4)
+
+[node name="Platform" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.247, 0)
+shape = SubResource("BoxShape3D_xo78u")
+
+[node name="Platform" parent="." instance=ExtResource("1_emilk")]
