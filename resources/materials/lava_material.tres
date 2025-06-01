@@ -20,5 +20,6 @@ shader_parameter/use_roughness_texture = true
 shader_parameter/roughness_texture = ExtResource("4_jjir6")
 shader_parameter/metallic = 0.0
 shader_parameter/use_metallic_texture = false
+shader_parameter/normalmap = 1.0
 shader_parameter/normal_texture = ExtResource("3_pvvwo")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_nrqwu")

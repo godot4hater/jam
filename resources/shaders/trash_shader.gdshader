@@ -8,6 +8,7 @@ uniform sampler2D roughness_texture: hint_default_white;
 uniform float metallic: hint_range(0, 1) = 0.0;
 uniform bool use_metallic_texture = false;
 uniform sampler2D metallic_texture: hint_default_black;
+uniform float normalmap: hint_range(0, 1) = 1.0;
 uniform sampler2D normal_texture: hint_normal;
 
 uniform sampler2D noise_texture: source_color;
@@ -29,7 +30,7 @@ void fragment() {
 	if (use_metallic_texture) {
 		METALLIC = metallic * texture(metallic_texture, UV).r;
 	}
-	NORMAL_MAP = texture(normal_texture, UV).rgb;
+	NORMAL_MAP = mix(NORMAL_MAP, texture(normal_texture, UV).rgb, normalmap);
 
 	SPECULAR = 0.75;
 	RIM = 0.5;
