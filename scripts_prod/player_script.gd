@@ -60,7 +60,7 @@ func _ready() -> void:
 	roborb_track_material = $Roborb/Armature/Skeleton3D/Cube.mesh.surface_get_material(1)
 
 func _input (event):
-	if event.is_action_pressed("mSlowToggle") and not inLava:
+	if event.is_action_pressed ("mSlowToggle") and not inLava:
 		isSlow = !isSlow
 		
 		if isSlow:
@@ -70,15 +70,18 @@ func _input (event):
 			speed = MAX_SPEED
 			angularAccel = MAX_ANG_ACCEL
 			
-	if event.is_action_pressed("mJump") and not broom.holstered:
-		actionSndP.stream = jumpsnd
-		actionSndP.play()
-		velocity.y = sqrt (curJumpHeight * 1.5 * gravity)
+	#if event.is_action_pressed ("mJump") and not broom.holstered:
+	#	actionSndP.stream = jumpsnd
+	#	actionSndP.play()
+	#	velocity.y = sqrt (curJumpHeight * 1.5 * gravity)
 				
-	if event.is_action_pressed("CheatBroom"):
+	if event.is_action_pressed ("CheatBroom"):
 		broom.holstered = !broom.holstered
 		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
 		remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
+	
+	#if event.is_action_pressed ("QuitBtn"):
+	#	get_tree().quit()
 			
 func _physics_process (delta):
 	if isDead:
@@ -97,8 +100,8 @@ func _physics_process (delta):
 			#velocity.x = lerp(velocity.x, $Roborb.global_basis.z.x * 20.0, 5.0 * delta)
 			#velocity.z = lerp(velocity.z, $Roborb.global_basis.z.z * 20.0, 5.0 * delta)
 			# nerfed
-			velocity.x = lerp (velocity.x, direction.x * 19.0, delta * 4.5)
-			velocity.z = lerp (velocity.z, direction.z * 19.0, delta * 4.5)
+			velocity.x = lerp (velocity.x, direction.x * 21.0, delta * 5.0)
+			velocity.z = lerp (velocity.z, direction.z * 21.0, delta * 5.0)
 			
 		$Roborb.rotation.y = lerp_angle ($Roborb.rotation.y, 
 										 atan2 (direction.x, direction.z), 
@@ -150,6 +153,7 @@ func _physics_process (delta):
 		if !moveSndP.is_playing():
 			moveSndP.stream = sprintsnd
 			moveSndP.play()
+			
 		if isHoldingItem:
 			emitBroomPickupTrash.emit()
 			isHoldingItem = false

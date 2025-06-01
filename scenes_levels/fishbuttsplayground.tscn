@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c08yb5irrkymu" path="res://scripts_prod/game_loop.gd" id="1_oaaea"]
 [ext_resource type="PackedScene" uid="uid://d1xyoa0a24hom" path="res://prefabs/battery_pickup.tscn" id="2_8b6t5"]
-[ext_resource type="Material" uid="uid://ds3e0t0a14r1l" path="res://resources/materials/trash_scrolling_material.tres" id="3_oaaea"]
+[ext_resource type="Material" path="res://resources/materials/trash_scrolling_material.tres" id="3_oaaea"]
 [ext_resource type="Script" uid="uid://cn7v2d3cy3ysi" path="res://scripts_prod/global_spawner.gd" id="4_g8dkq"]
 [ext_resource type="Script" uid="uid://yem6al4c0yf0" path="res://scripts_prod/spawner_timer.gd" id="5_dkcii"]
 [ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="6_i564o"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5coudf78rrbc" path="res://Player.tscn" id="9_rw3x2"]
 [ext_resource type="PackedScene" uid="uid://cj7f01yfo6oh4" path="res://prefabs/lava.tscn" id="10_7sn14"]
 [ext_resource type="PackedScene" path="res://prefabs/platform.tscn" id="11_8b6t5"]
-[ext_resource type="PackedScene" uid="uid://bl60omjgylp3k" path="res://prefabs/beam.tscn" id="12_c1c48"]
+[ext_resource type="PackedScene" path="res://prefabs/beam.tscn" id="12_c1c48"]
 
 [sub_resource type="Environment" id="Environment_eq5wj"]
 
@@ -502,7 +502,6 @@ material = SubResource("StandardMaterial3D_c1c48")
 [connection signal="timeout" from="globalSpawner/spawnerTimer" to="globalSpawner" method="_on_spawner_timer_timeout"]
 [connection signal="playerWins" from="chute/Node3D/Area3D" to="CharacterBody3D" method="_on_area_3d_player_wins"]
 [connection signal="reduceTrashCounter" from="chute/Node3D/Area3D" to="CharacterBody3D" method="_on_area_3d_reduce_trash_counter"]
-[connection signal="emitBroomPickupTrash" from="CharacterBody3D" to="chute/Node3D" method="_on_character_body_3d_emit_broom_pickup_trash"]
-[connection signal="emitBroomPickupTrash" from="CharacterBody3D" to="chute/Node3D2" method="_on_character_body_3d_emit_broom_pickup_trash"]
+[connection signal="emitBroomPickupTrash" from="CharacterBody3D" to="chute/Node3D/Area3D" method="_on_character_body_3d_emit_broom_pickup_trash"]
 
 [editable path="chute/Node3D"]

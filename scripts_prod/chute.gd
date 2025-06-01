@@ -24,17 +24,12 @@ func _on_body_entered(body):
 	print("NOM NOM NOM")
 	body.queue_free()
 	
-func _on_character_body_3d_emit_broom_pickup_trash() -> void:
-	CheckIfPlayerWon()
-	
 func CheckIfPlayerWon():
-	print(gameLoopRef.trashCollected)
 	gameLoopRef.trashCollected += 1
 
 	if not gameLoopDisabled:
 		reduceTrashCounter.emit()
-		print(gameLoopDisabled)
-		print("..........")
+
 		if gMode.endless:
 			gameLoopRef.allowRaise = false
 			lavaRef.global_position.y -= 2.5
@@ -62,3 +57,6 @@ func _on_timer_timeout() -> void:
 	
 func _on_timer_timeout2() -> void:
 	gameLoopRef.allowRaise = true
+
+func _on_character_body_3d_emit_broom_pickup_trash() -> void:
+	CheckIfPlayerWon()
