@@ -10,8 +10,11 @@ func _ready():
 		var trashbags = 10
 		while trashbags > 0:
 			random = randi() % children_array.size()
+			random += 1
 			if children_array[random].get_child_count() == 0:
+				print(random)
 				children_array[random].instance_object()
+				children_array.remove_at(random)
 				trashbags -= 1
 		
 

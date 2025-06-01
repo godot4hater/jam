@@ -20,7 +20,7 @@ func _on_play_game_pressed() -> void:
 	game.set_physics_process(false)
 	#get_tree().root.add_child(game)
 	#get_tree().current_scene = game
-	get_tree().call_deferred("change_scene_to_file", "res://scenes_levels/playground.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes_levels/fishbuttsplayground.tscn")
 	
 	var tween = get_tree().create_tween()
 	tween.tween_interval(0.5)
@@ -41,7 +41,7 @@ func _on_options_pressed() -> void:
 	var game = GAME_PACKED.instantiate()
 	game.set_process_input(false)
 	game.set_physics_process(false)
-	get_tree().call_deferred("change_scene_to_file", "res://scenes_levels/playground.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes_levels/fishbuttsplayground.tscn")
 	#get_tree().root.add_child(game)
 	#get_tree().current_scene = game
 	
