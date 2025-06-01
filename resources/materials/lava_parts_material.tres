@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cycj6yr7w4lgp"]
+
+[ext_resource type="Shader" uid="uid://b2mphctoaueqf" path="res://resources/shaders/trash_shader.gdshader" id="1_4b6nd"]
+[ext_resource type="Texture2D" uid="uid://cn4bnjkghrhgi" path="res://assets/textures/Lava_Part_Colour.png" id="2_ecpho"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trxfm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nrqwu"]
+seamless = true
+noise = SubResource("FastNoiseLite_trxfm")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4b6nd")
+shader_parameter/albedo_texture = ExtResource("2_ecpho")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_nrqwu")
