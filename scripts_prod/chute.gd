@@ -14,7 +14,6 @@ signal playerWins()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	chutePlay.stream = chutesnd
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -31,10 +30,11 @@ func _on_character_body_3d_emit_broom_pickup_trash() -> void:
 func CheckIfPlayerWon():
 	print(gameLoopRef.trashCollected)
 	gameLoopRef.trashCollected += 1
-		
+
 	if not gameLoopDisabled:
 		reduceTrashCounter.emit()
-		
+		print(gameLoopDisabled)
+		print("..........")
 		if gMode.endless:
 			gameLoopRef.allowRaise = false
 			lavaRef.global_position.y -= 2.5
