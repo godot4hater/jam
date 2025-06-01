@@ -8,11 +8,15 @@ bounce = 0.3
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ydaxm"]
 points = PackedVector3Array(-0.00096561, -0.190184, 0.197222, -0.148486, -0.197513, 0.110789, -0.14734, -0.222153, -0.0585632, 0.148876, -0.231995, -0.0551202, 0.14773, -0.207355, 0.114232, -6.07967e-06, 0.207127, 0.167706, -0.145266, 0.207127, 0.0838187, -0.145638, 0.16406, 0.0838187, -0.145793, 0.164339, -0.084278, 0.00135583, -0.239324, -0.141518, -0.146009, 0.00253876, -0.0848518, -0.00121322, 0.00142193, -0.169169, 0.144202, -0.00116073, -0.0859636, 0.142159, 0.240004, -0.112575, 0.167726, 0.366136, -0.0126567, 0.145223, 0.207127, 0.0838187, 0.0463299, 0.47377, -0.018144, -0.105245, 0.435867, -0.0644091, -0.145266, 0.207127, -0.0838835, -0.135393, 0.290331, -0.105187, -0.000284657, 0.16413, -0.168452, -6.07967e-06, 0.207127, -0.167735)
 
-[node name="RigidBeanCan" type="RigidBody3D"]
+[node name="RigidBeanCan" type="RigidBody3D" groups=["TrashPile"]]
+collision_layer = 3
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_wfbhu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("1_ie6lp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_ydaxm")

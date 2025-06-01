@@ -1,6 +1,11 @@
 extends Node3D
 
-var scene_to_instance = preload("res://test_trash_pile.tscn")
+var trash1 = preload("res://test_trash_pile.tscn")
+var trash2 = preload("res://scenes_trash/rigid_bean_box.tscn")
+var trash3 = preload("res://scenes_trash/rigid_bean_can.tscn")
+var trash4 = preload("res://scenes_trash/rigid_bean_soda.tscn")
+var trash_array = [trash1,trash2,trash3,trash4]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,5 +16,6 @@ func _process(_delta):
 	pass
 	
 func instance_object():
-	var object = scene_to_instance.instantiate()
+	var random = randi() % trash_array.size()
+	var object = trash_array[random].instantiate()
 	call_deferred("add_child",object)
