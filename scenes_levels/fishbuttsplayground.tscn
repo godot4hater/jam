@@ -551,19 +551,19 @@ script = ExtResource("7_dvtve")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3964, 7, 33.6431)
 
 [node name="Node3D3" parent="chute" instance=ExtResource("8_jvyxe")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.59894, 31.9516, 42.916)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.59894, 31.9516, 45.7766)
 
 [node name="Node3D4" parent="chute" instance=ExtResource("8_jvyxe")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.59894, 31.9516, -44.4518)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.59894, 31.9516, -43.9331)
 
 [node name="Node3D2" parent="chute" instance=ExtResource("8_jvyxe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40.1544, 14.617, -29.7539)
 
 [node name="Node3D5" parent="chute" instance=ExtResource("8_jvyxe")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.9912, 47.0244, -40.0299)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.9912, 47.0244, -41.8495)
 
 [node name="Node3D6" parent="chute" instance=ExtResource("8_jvyxe")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.9912, 47.0244, 36.4012)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.9912, 47.0244, 39.8564)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("9_rw3x2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.542408, -0.221785, 33.6205)
