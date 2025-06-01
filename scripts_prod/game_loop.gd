@@ -5,6 +5,7 @@ const TRASH_AMOUNT_WIN_CON : int    = 10
 var timePassed : float     		    = 0.0
 # hard coding 10 minute timer
 var timeLeft : float     		    = 600.0
+var riseRate : float                = 1.9
 var allowRaise : bool               = false
 var moveValue : float               = 0.0
 
@@ -15,12 +16,19 @@ var moveValue : float               = 0.0
 signal putTimeInPlayersLabel (timeOutput : String)
 
 func _ready():
-	var timer: Timer = Timer.new()
-	timer.wait_time = 1
-	timer.one_shot = false
-	timer.autostart = true
-	timer.timeout.connect (_on_timer_timeout)
-	add_child (timer)
+	if not gMode.endless:
+		riseRate = 1.9
+		var timer: Timer = Timer.new()
+		timer.wait_time = 1
+		timer.one_shot = false
+		timer.autostart = true
+		timer.timeout.connect (_on_timer_timeout)
+		add_child (timer)
+	else:
+		allowRaise = true
+		moveValue = 50.0
+		riseRate = 0.0075
+		putTimeInPlayersLabel.emit ("SURVIVE")
 
 func _on_timer_timeout() -> void:
 	timeLeft -= 1
@@ -30,22 +38,22 @@ func _on_timer_timeout() -> void:
 		590.0:
 			allowRaise = true
 			moveValue = 0.0
-		580.0:
+		585.0:
 			allowRaise = true
 			moveValue = 1.5
-		570.0:
+		580.0:
 			allowRaise = true
 			moveValue = 3.0
-		560.0:
+		575.0:
 			allowRaise = true
 			moveValue = 7.0
-		550.0:
+		570.0:
 			allowRaise = true
 			moveValue = 15.0
 
 func _physics_process (delta) -> void:
 	if allowRaise and trashCollected < TRASH_AMOUNT_WIN_CON:
-		lavaRef.global_position.y = lerp (lavaRef.global_position.y, moveValue, delta * 1.9)
+		lavaRef.global_position.y = lerp (lavaRef.global_position.y, moveValue, delta * riseRate)
 	
 	if lavaRef.global_position.y >= moveValue:
 		allowRaise = false

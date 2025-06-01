@@ -54,13 +54,19 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_dtqjt"]
 font_size = 60
 font_color = Color(0.278586, 0.745061, 0.416373, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ncpa"]
 font_size = 60
 font_color = Color(0.909056, 0.116707, 5.77569e-07, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wi0c6"]
 font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 5
@@ -215,10 +221,10 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
 
 [node name="timeLeftLabel" type="Label" parent="SubViewportContainer/SubViewport"]
-offset_left = 778.0
-offset_top = 38.0
-offset_right = 818.0
-offset_bottom = 113.0
+offset_left = 743.0
+offset_top = 39.0
+offset_right = 783.0
+offset_bottom = 114.0
 scale = Vector2(2.71627, 1.29252)
 text = "10:00"
 label_settings = SubResource("LabelSettings_tdg3f")

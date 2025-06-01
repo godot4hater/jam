@@ -27,8 +27,7 @@ func CheckIfPlayerWon():
 	if not gameLoopDisabled:
 		reduceTrashCounter.emit()
 	
-	if gameLoopRef.trashCollected >= 10 and not gameLoopDisabled:
-		print (gameLoopRef.trashCollected)
+	if gameLoopRef.trashCollected >= 10 and not gameLoopDisabled and not gMode.endless:
 		playerWins.emit()
 		
 		var timer: Timer = Timer.new()

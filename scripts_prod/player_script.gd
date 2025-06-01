@@ -30,7 +30,7 @@ signal emitBroomPickupTrash
 @onready var anim_player: AnimationPlayer   = $Roborb/AnimationPlayer
 @onready var timerLabelRef: Label           = $SubViewportContainer/SubViewport/timeLeftLabel
 @onready var winLabelRef: Label             = $SubViewportContainer/SubViewport/winLabel
-@onready var diedLabelRef: Label             = $SubViewportContainer/SubViewport/diedLabel
+@onready var diedLabelRef: Label            = $SubViewportContainer/SubViewport/diedLabel
 @onready var countLabelRef: Label           = $SubViewportContainer/SubViewport/countLabel
 @onready var lavaRef                        = get_tree().get_root().get_node ("testlvl/Lava/AreaSlow")
 @onready var killboxRef                     = get_tree().get_root().get_node ("testlvl/Lava/AreaKill")
@@ -41,6 +41,8 @@ var bodyRef : Node3D
 var roborb_track_material: ShaderMaterial
 
 func _ready() -> void:
+	if gMode.endless:
+		countLabelRef.text = "0"
 	# Reset broom remotes
 	broom.holstered = true
 	remote_back.remote_path = remote_back.get_path_to(broom)
@@ -147,7 +149,6 @@ func ThrowItem (strength : Vector3):
 		bodyRef.set_collision_layer_value (4, false)
 		
 func _on_area_3d_body_entered (body: Node3D) -> void:
-	print(body)
 	if body.is_in_group ("TrashPile") && !isHoldingItem:
 		bodyRef = body
 		isHoldingItem = true
@@ -183,10 +184,16 @@ func _on_node_3d_2_player_wins() -> void:
 	winLabelRef.visible = true
 
 func _on_node_3d_reduce_trash_counter() -> void:
-	countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
+	if gMode.endless:
+		countLabelRef.text = str (gameLoopRef.trashCollected)
+	else:
+		countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
 
 func _on_node_3d_2_reduce_trash_counter() -> void:
-	countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
+	if gMode.endless:
+		countLabelRef.text = str (gameLoopRef.trashCollected)
+	else:
+		countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area == lavaRef:
