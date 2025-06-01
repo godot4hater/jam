@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhcuvg57s436i"]
+
+[ext_resource type="ArrayMesh" uid="uid://canxqq3do5vo7" path="res://resources/mesh/props/big_bean.res" id="1_pi676"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wfbhu"]
+bounce = 0.3
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bjoie"]
+points = PackedVector3Array(0.00569385, -0.108788, 0.15132, -4.52995e-06, 0.0646127, 0.121625, -0.123878, -0.118221, 0.0993882, -0.0846387, -0.177978, 0.101394, 0.00569385, -0.166116, 0.134537, 0.1143, -0.124456, 0.0928048, 0.118748, 0.156273, 0.063872, -0.119334, 0.0946532, 0.0588144, -0.121762, -0.0165612, 0.0584753, -0.121762, -0.0387069, -0.0639807, -0.123878, -0.15397, -0.0340872, -0.0846387, -0.20235, 0.0102162, 0.00569385, -0.206723, 0.0586448, 0.079893, -0.176804, 0.0945566, 0.1143, -0.155751, -0.0241981, 0.121729, -0.0165612, 0.0584753, 0.118748, 0.194774, -0.0624267, 0.0673662, 0.163155, 0.0413247, 9.16421e-05, 0.18607, -0.0725419, -0.116929, 0.14522, -0.0726267, -0.119406, 0.0801188, -0.0711292, -4.52995e-06, -0.0498, -0.127865, -4.52995e-06, 0.121536, -0.13733, 0.00569385, -0.171419, -0.0827136, 0.00569385, -0.208869, -0.0253283, 0.079893, -0.19818, 0.014624, 0.121729, -0.0387069, -0.0639807, -4.52995e-06, 0.204734, -0.126735, 0.0677749, 0.186111, -0.0351892, 0.118748, 0.111576, -0.0730223)
+
+[node name="RigidBigBean" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_wfbhu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_pi676")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_bjoie")
