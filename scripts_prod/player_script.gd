@@ -70,6 +70,11 @@ func _input (event):
 			speed = MAX_SPEED
 			angularAccel = MAX_ANG_ACCEL
 			
+	if event.is_action_pressed("mJump") and not broom.holstered:
+		actionSndP.stream = jumpsnd
+		actionSndP.play()
+		velocity.y = sqrt (curJumpHeight * 1.5 * gravity)
+				
 	if event.is_action_pressed("CheatBroom"):
 		broom.holstered = !broom.holstered
 		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
@@ -198,23 +203,6 @@ func _on_testlvl_put_time_in_players_label (timeOutput: String) -> void:
 
 # this is dumb, there has to be a better way of doing this
 # i need to refactor it so theres only mono chute and all the nodes just share the same message
-func _on_node_3d_player_wins() -> void:
-	winLabelRef.visible = true
-
-func _on_node_3d_2_player_wins() -> void:
-	winLabelRef.visible = true
-
-func _on_node_3d_reduce_trash_counter() -> void:
-	if gMode.endless:
-		countLabelRef.text = str (gameLoopRef.trashCollected)
-	else:
-		countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
-
-func _on_node_3d_2_reduce_trash_counter() -> void:
-	if gMode.endless:
-		countLabelRef.text = str (gameLoopRef.trashCollected)
-	else:
-		countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area == lavaRef:
@@ -241,3 +229,12 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		inLava = false
 		speed = MAX_SPEED 
 		curJumpHeight = MAX_JUMP_HEIGHT
+
+func _on_area_3d_reduce_trash_counter() -> void:
+	if gMode.endless:
+		countLabelRef.text = str (gameLoopRef.trashCollected)
+	else:
+		countLabelRef.text = str (gameLoopRef.TRASH_AMOUNT_WIN_CON - gameLoopRef.trashCollected)
+
+func _on_area_3d_player_wins() -> void:
+	winLabelRef.visible = true
