@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddsks3vhmt8yq"]
 
 [ext_resource type="Script" uid="uid://b7spfi2wo1dst" path="res://scripts_prod/chute.gd" id="1_2fkmg"]
-[ext_resource type="ArrayMesh" uid="uid://c0v6g2tj7wudm" path="res://resources/mesh/TrashChute.res" id="2_ll1hq"]
+[ext_resource type="ArrayMesh" uid="uid://dwscn3mv16mjb" path="res://resources/mesh/TrashChute.res" id="2_ll1hq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu1lx"]
 albedo_color = Color(0.86, 0.5332, 0.767407, 1)
