@@ -89,8 +89,11 @@ func _physics_process (delta):
 			velocity.x = lerp (velocity.x, direction.x * speed, delta * accel)
 			velocity.z = lerp (velocity.z, direction.z * speed, delta * accel)
 		elif not broom.holstered:
-			velocity.x = lerp(velocity.x, $Roborb.global_basis.z.x * 20.0, 5.0 * delta)
-			velocity.z = lerp(velocity.z, $Roborb.global_basis.z.z * 20.0, 5.0 * delta)
+			#velocity.x = lerp(velocity.x, $Roborb.global_basis.z.x * 20.0, 5.0 * delta)
+			#velocity.z = lerp(velocity.z, $Roborb.global_basis.z.z * 20.0, 5.0 * delta)
+			# nerfed
+			velocity.x = lerp (velocity.x, direction.x * 19.0, delta * 4.5)
+			velocity.z = lerp (velocity.z, direction.z * 19.0, delta * 4.5)
 			
 		$Roborb.rotation.y = lerp_angle ($Roborb.rotation.y, 
 										 atan2 (direction.x, direction.z), 
@@ -139,12 +142,17 @@ func _physics_process (delta):
 	if not broom.holstered: 
 		anim_player.play("brushing")
 		
+		if !moveSndP.is_playing():
+			moveSndP.stream = sprintsnd
+			moveSndP.play()
 		if isHoldingItem:
 			emitBroomPickupTrash.emit()
 			isHoldingItem = false
 			bodyRef.queue_free()
 			bodyRef = null
 	else:
+		moveSndP.stop()
+		
 		if vel < 0.1:
 			anim_player.play("idle")
 		elif vel < 5.0:
