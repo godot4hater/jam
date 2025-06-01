@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c47vm86q82m83"
-path="res://.godot/imported/Roborb.glb-fcf14f5057d538d1422cb971346e45ca.scn"
+uid="uid://c18bhjwmov01j"
+path="res://.godot/imported/BigTubePipe.glb-5f431e6df972e70ea781c19b756a1b65.scn"
 
 [deps]
 
-source_file="res://assets/Roborb.glb"
-dest_files=["res://.godot/imported/Roborb.glb-fcf14f5057d538d1422cb971346e45ca.scn"]
+source_file="res://assets/BigTubePipe.glb"
+dest_files=["res://.godot/imported/BigTubePipe.glb-5f431e6df972e70ea781c19b756a1b65.scn"]
 
 [params]
 
@@ -32,21 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Face": {
-"use_external/enabled": true,
-"use_external/path": "uid://c3t4t8harmgww"
-},
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "uid://cipbjtl3703uh"
-},
-"Tracks": {
-"use_external/enabled": true,
-"use_external/path": "uid://dek0i7n6cnfs4"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

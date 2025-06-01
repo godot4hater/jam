@@ -12,6 +12,16 @@ const SLOW_FACTOR : float                   = 4.0
 @export var angularAccel : float  			= 3.5
 @export var curJumpHeight : float 			= 4.5 
 @export var throwStrength : float           = 8.25
+@export_enum("Neutral", "Excited", "Frazzled") var expression := "Neutral" :
+	set(new):
+		expression = new
+		match expression:
+			"Neutral":
+				roborb_face_material.set_shader_parameter("face_coord", Vector2(0.0, 0.0))
+			"Excited":
+				roborb_face_material.set_shader_parameter("face_coord", Vector2(0.0, 0.5))
+			"Frazzled":
+				roborb_face_material.set_shader_parameter("face_coord", Vector2(0.5, 0.5))
 
 # player states
 var isHoldingItem : bool                    = false
@@ -48,6 +58,7 @@ var throwsnd  = preload ("res://assets/sounds/roboThrow_snd.wav")
 ## This is the things you hold, not Roborbs body
 var bodyRef : Node3D
 var roborb_track_material: ShaderMaterial
+var roborb_face_material: ShaderMaterial
 
 func _ready() -> void:
 	if gMode.endless:
@@ -58,6 +69,7 @@ func _ready() -> void:
 	remote_back.remote_path = remote_back.get_path_to(broom)
 	remote_hand.remote_path = ""
 	roborb_track_material = $Roborb/Armature/Skeleton3D/Cube.mesh.surface_get_material(1)
+	roborb_face_material = $Roborb/Armature/Skeleton3D/Cube.mesh.surface_get_material(2)
 
 func _input (event):
 	if event.is_action_pressed ("mSlowToggle") and not inLava:
@@ -79,7 +91,7 @@ func _input (event):
 		broom.holstered = !broom.holstered
 		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
 		remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
-	
+		expression = ["Neutral", "Excited", "Frazzled"].pick_random()
 	#if event.is_action_pressed ("QuitBtn"):
 	#	get_tree().quit()
 			
@@ -189,6 +201,7 @@ func _on_area_3d_body_entered (body: Node3D) -> void:
 		isHoldingItem = false
 
 func get_battery() -> void:
+	expression = "Excited"
 	ui_3d.charge_up()
 	#if batteryPower == 3:
 	broom.holstered = false
@@ -198,6 +211,7 @@ func get_battery() -> void:
 # message nightmare, godont is insane
 
 func _on_ui_3d_ran_out_charge() -> void:
+	expression = "Neutral"
 	broom.holstered = true
 	remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
 	remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
@@ -210,6 +224,7 @@ func _on_testlvl_put_time_in_players_label (timeOutput: String) -> void:
 	
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area == lavaRef:
+		expression = "Frazzled"
 		inLava = true
 		speed = 4.0
 		curJumpHeight = DEBUFF_JUMP_HEIGHT
@@ -230,6 +245,7 @@ func _on_timer_timeout2() -> void:
 		
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area == lavaRef:
+		if broom.holstered: expression = "Neutral"
 		inLava = false
 		speed = MAX_SPEED 
 		curJumpHeight = MAX_JUMP_HEIGHT
@@ -242,3 +258,9 @@ func _on_area_3d_reduce_trash_counter() -> void:
 
 func _on_area_3d_player_wins() -> void:
 	winLabelRef.visible = true
+
+
+func _on_neutral_expression_timer_timeout() -> void:
+	if expression == "Neutral":
+		var x = roborb_face_material.get_shader_parameter("face_coord").x
+		roborb_face_material.set_shader_parameter("face_coord", Vector2(x + 0.5, 0.0))
