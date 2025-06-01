@@ -2,14 +2,18 @@ extends Node3D
 
 @onready var gameLoopRef = get_tree().get_root().get_node ("testlvl")
 @onready var lavaRef : AnimatableBody3D = get_tree().get_root().get_node ("testlvl/Lava")
+@onready var chutePlay : AudioStreamPlayer3D = $chuteSnd
+var chutesnd   = preload ("res://assets/sounds/chute_snd.wav")
+
 var gameLoopDisabled = false
 var iminarush : bool = false
+
 signal reduceTrashCounter()
 signal playerWins()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	chutePlay.stream = chutesnd
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -17,6 +21,7 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	CheckIfPlayerWon()
+	chutePlay.play()
 	print("NOM NOM NOM")
 	body.queue_free()
 	
