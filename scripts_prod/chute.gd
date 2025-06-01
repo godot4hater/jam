@@ -3,6 +3,7 @@ extends Node3D
 @onready var gameLoopRef = get_tree().get_root().get_node ("testlvl")
 @onready var lavaRef : AnimatableBody3D = get_tree().get_root().get_node ("testlvl/Lava")
 var gameLoopDisabled = false
+var iminarush : bool = false
 signal reduceTrashCounter()
 signal playerWins()
 
@@ -23,8 +24,9 @@ func _on_character_body_3d_emit_broom_pickup_trash() -> void:
 	CheckIfPlayerWon()
 	
 func CheckIfPlayerWon():
+	print(gameLoopRef.trashCollected)
 	gameLoopRef.trashCollected += 1
-	
+		
 	if not gameLoopDisabled:
 		reduceTrashCounter.emit()
 		
