@@ -70,6 +70,11 @@ func _input (event):
 			speed = MAX_SPEED
 			angularAccel = MAX_ANG_ACCEL
 			
+	if event.is_action_pressed("mJump") and not broom.holstered:
+		actionSndP.stream = jumpsnd
+		actionSndP.play()
+		velocity.y = sqrt (curJumpHeight * 1.5 * gravity)
+				
 	if event.is_action_pressed("CheatBroom"):
 		broom.holstered = !broom.holstered
 		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
