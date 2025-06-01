@@ -61,7 +61,7 @@ func _on_timer_timeout() -> void:
 			moveValue = 1.5
 		480.0:
 			allowRaise = true
-			moveValue = 3.5
+			moveValue = 3.75
 		420:
 			allowRaise = true
 			moveValue = 4.5
@@ -78,13 +78,13 @@ func _on_timer_timeout() -> void:
 			moveValue = 7.0
 		200:
 			allowRaise = true
-			moveValue = 7.5
+			moveValue = 8.5
 		100:
 			allowRaise = true
-			moveValue = 8.5
+			moveValue = 12.0
 		0.0:
 			allowRaise = true
-			moveValue = 17.0
+			moveValue = 99.0
 
 func _on_timer_timeout2() -> void:
 	riseRate = 0.012

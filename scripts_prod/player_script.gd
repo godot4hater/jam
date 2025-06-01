@@ -4,7 +4,7 @@ var direction : Vector3 	      			= Vector3.FORWARD
 const MAX_SPEED : float     				= 12.0
 const MAX_ANG_ACCEL : float 				= 3.5
 const MAX_JUMP_HEIGHT : float               = 4.5
-const DEBUFF_JUMP_HEIGHT : float			= 1.7
+const DEBUFF_JUMP_HEIGHT : float			= 1.9
 const SLOW_FACTOR : float                   = 4.0
 @export var gravity : float 				= 80.0
 @export var speed : float 					= 12.0
@@ -87,11 +87,11 @@ func _input (event):
 	#	actionSndP.play()
 	#	velocity.y = sqrt (curJumpHeight * 1.5 * gravity)
 				
-	if event.is_action_pressed ("CheatBroom"):
-		broom.holstered = !broom.holstered
-		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
-		remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
-		expression = ["Neutral", "Excited", "Frazzled"].pick_random()
+	#if event.is_action_pressed ("CheatBroom"):
+	#	broom.holstered = !broom.holstered
+	#	remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
+	#	remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
+	#	expression = ["Neutral", "Excited", "Frazzled"].pick_random()
 	
 	if event.is_action_pressed ("QuitBtn"):
 		get_tree().quit()
@@ -193,6 +193,8 @@ func ThrowItem (strength : Vector3):
 		
 func _on_area_3d_body_entered (body: Node3D) -> void:
 	if body.is_in_group ("TrashPile") && !isHoldingItem:
+		actionSndP.stream = dropsnd
+		actionSndP.play()
 		bodyRef = body
 		isHoldingItem = true
 		anim_player.play ("walk")
@@ -259,7 +261,6 @@ func _on_area_3d_reduce_trash_counter() -> void:
 
 func _on_area_3d_player_wins() -> void:
 	winLabelRef.visible = true
-
 
 func _on_neutral_expression_timer_timeout() -> void:
 	if expression == "Neutral":
