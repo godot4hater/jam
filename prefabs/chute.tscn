@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddsks3vhmt8yq"]
+[gd_scene load_steps=5 format=3 uid="uid://ddsks3vhmt8yq"]
 
 [ext_resource type="Script" uid="uid://b7spfi2wo1dst" path="res://scripts_prod/chute.gd" id="1_2fkmg"]
+[ext_resource type="ArrayMesh" uid="uid://c0v6g2tj7wudm" path="res://resources/mesh/TrashChute.res" id="2_ll1hq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu1lx"]
 albedo_color = Color(0.86, 0.5332, 0.767407, 1)
@@ -15,6 +16,7 @@ script = ExtResource("1_2fkmg")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.734741, 3.21166e-08, 0)
+visible = false
 radius = 2.6377
 height = 1.50659
 material = SubResource("StandardMaterial3D_hu1lx")
@@ -22,6 +24,26 @@ material = SubResource("StandardMaterial3D_hu1lx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.862392, 0, 0)
 shape = SubResource("CylinderShape3D_hu1lx")
+
+[node name="TrashChute" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_ll1hq")
+
+[node name="LightGreen" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.115, 3.925, 1.589)
+light_color = Color(0, 1, 0, 1)
+light_energy = 16.0
+light_size = 1.0
+omni_range = 0.5
+omni_attenuation = 2.0
+
+[node name="LightRed" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.115, 3.925, -1.565)
+light_color = Color(1, 0.223529, 0, 1)
+light_energy = 20.0
+light_size = 1.0
+omni_range = 0.5
+omni_attenuation = 2.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

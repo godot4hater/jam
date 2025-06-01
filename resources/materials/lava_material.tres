@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://dbmrukiby2pby"]
 
 [ext_resource type="Shader" uid="uid://b2mphctoaueqf" path="res://resources/shaders/trash_shader.gdshader" id="1_6k8eg"]
-[ext_resource type="Texture2D" uid="uid://xxp7radsdui0" path="res://assets/textures/Lava_Colour.png" id="2_pvvwo"]
-[ext_resource type="Texture2D" uid="uid://b4kivpds8n5xj" path="res://assets/textures/Lava_Normal.png" id="3_jjir6"]
-[ext_resource type="Texture2D" uid="uid://t3ha1w83bjlm" path="res://assets/textures/Lava_Roughness.png" id="4_oem41"]
+[ext_resource type="Texture2D" uid="uid://dn663jyewupe7" path="res://assets/textures/TrashLava Color.png" id="2_6k8eg"]
+[ext_resource type="Texture2D" uid="uid://b5qbvbrcs4n2u" path="res://assets/textures/TrashLava Normal.png" id="3_pvvwo"]
+[ext_resource type="Texture2D" uid="uid://b30kh4xrj8etn" path="res://assets/textures/TrashLava Roughness.png" id="4_jjir6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_trxfm"]
 
@@ -14,7 +14,11 @@ noise = SubResource("FastNoiseLite_trxfm")
 [resource]
 render_priority = 0
 shader = ExtResource("1_6k8eg")
-shader_parameter/albedo_texture = ExtResource("2_pvvwo")
-shader_parameter/roughness_texture = ExtResource("4_oem41")
-shader_parameter/normal_texture = ExtResource("3_jjir6")
+shader_parameter/albedo_texture = ExtResource("2_6k8eg")
+shader_parameter/roughness = 1.0
+shader_parameter/use_roughness_texture = true
+shader_parameter/roughness_texture = ExtResource("4_jjir6")
+shader_parameter/metallic = 0.0
+shader_parameter/use_metallic_texture = false
+shader_parameter/normal_texture = ExtResource("3_pvvwo")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_nrqwu")
