@@ -35,19 +35,19 @@ func _on_timer_timeout() -> void:
 	putTimeInPlayersLabel.emit (ConvertTime (timeLeft))
 	
 	match timeLeft:
-		590.0:
+		480.0:
 			allowRaise = true
 			moveValue = 0.0
-		585.0:
+		360.0:
 			allowRaise = true
 			moveValue = 1.5
-		580.0:
+		240.0:
 			allowRaise = true
 			moveValue = 3.0
-		575.0:
+		120.0:
 			allowRaise = true
 			moveValue = 7.0
-		570.0:
+		0.0:
 			allowRaise = true
 			moveValue = 15.0
 
