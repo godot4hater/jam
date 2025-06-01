@@ -92,8 +92,9 @@ func _input (event):
 		remote_back.remote_path = remote_back.get_path_to(broom) if broom.holstered else NodePath()
 		remote_hand.remote_path =  NodePath() if broom.holstered else remote_hand.get_path_to(broom)
 		expression = ["Neutral", "Excited", "Frazzled"].pick_random()
-	#if event.is_action_pressed ("QuitBtn"):
-	#	get_tree().quit()
+	
+	if event.is_action_pressed ("QuitBtn"):
+		get_tree().quit()
 			
 func _physics_process (delta):
 	if isDead:
