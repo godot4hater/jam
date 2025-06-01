@@ -24,6 +24,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 TrashPile="object for the trash itself"
+Player="is the player"
 
 [input]
 

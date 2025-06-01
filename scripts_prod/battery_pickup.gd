@@ -9,5 +9,6 @@ func _physics_process(delta: float) -> void:
 	$Battery2.rotate_y(1.0 * delta)
 	
 func _on_body_entered(body: Node3D) -> void:
-	body.get_battery()
-	queue_free()
+	if body.is_in_group ("Player"):
+		body.get_battery()
+		queue_free()

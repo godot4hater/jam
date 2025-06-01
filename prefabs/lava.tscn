@@ -1,24 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj7f01yfo6oh4"]
+[gd_scene load_steps=5 format=3 uid="uid://cj7f01yfo6oh4"]
 
-[ext_resource type="ArrayMesh" uid="uid://dkxmawww21rnc" path="res://resources/mesh/Lava.res" id="1_gil3p"]
-[ext_resource type="ArrayMesh" uid="uid://ol55e2q6p0x2" path="res://resources/mesh/Lava_Parts.res" id="2_jefjt"]
+[ext_resource type="ArrayMesh" uid="uid://cmvcvplgbs2at" path="res://resources/mesh/Lava.res" id="1_gil3p"]
+[ext_resource type="ArrayMesh" uid="uid://re76aideqqes" path="res://resources/mesh/Lava_Parts.res" id="2_jefjt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gil3p"]
-size = Vector3(75, 5, 75)
+[sub_resource type="BoxShape3D" id="BoxShape3D_up7pp"]
+size = Vector3(98.0022, 104.058, 118.515)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bc6cg"]
+size = Vector3(83.5526, 1.85181, 79.5112)
 
 [node name="Lava" type="AnimatableBody3D"]
+collision_layer = 5
+collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
-shape = SubResource("BoxShape3D_gil3p")
-debug_color = Color(0.7, 0.373333, 0, 0.419608)
-
-[node name="LavaBase" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+[node name="LavaBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 mesh = ExtResource("1_gil3p")
-skeleton = NodePath("../..")
 
-[node name="LavaParts" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+[node name="LavaParts" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 mesh = ExtResource("2_jefjt")
-skeleton = NodePath("../..")
+
+[node name="AreaKill" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.37326, 5.9138)
+
+[node name="AreaColliderKill" type="CollisionShape3D" parent="AreaKill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66711, -49.9061, -23.4806)
+shape = SubResource("BoxShape3D_up7pp")
+
+[node name="AreaSlow" type="Area3D" parent="."]
+
+[node name="Areaslow" type="CollisionShape3D" parent="AreaSlow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19306, -2.54201, 1.54209)
+shape = SubResource("BoxShape3D_bc6cg")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://drxn02d1ubuoc"]
 
-[ext_resource type="PackedScene" uid="uid://chndx0ettdpdg" path="res://prefabs/player.tscn" id="1_fmwu6"]
 [ext_resource type="PackedScene" uid="uid://y8po8j384san" path="res://object_spawner.tscn" id="2_rfrm5"]
+[ext_resource type="PackedScene" uid="uid://c5coudf78rrbc" path="res://Player.tscn" id="3_gxibw"]
 [ext_resource type="PackedScene" uid="uid://cjhli42vgwyd6" path="res://test_trash_pile.tscn" id="3_rfrm5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot7vp"]
@@ -10,9 +10,6 @@ albedo_color = Color(0.831373, 1, 1, 1)
 [sub_resource type="Environment" id="Environment_ot7vp"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_fmwu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38286, 0)
 
 [node name="LevelGeo" type="Node" parent="."]
 
@@ -170,3 +167,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6973, 1.3019, 11.175)
 
 [node name="testTrashPile" parent="." instance=ExtResource("3_rfrm5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91394, 2.53693, 6.86188)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_gxibw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113358, 16.866, 5.26449)

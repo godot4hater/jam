@@ -7,9 +7,10 @@ extends CanvasLayer
 @onready var quit: Button = $Background/Quit
 @onready var background: TextureRect = $Background
 
-
-func _on_play_game_pressed() -> void:
+func _ready():
+	Input.set_mouse_mode (Input.MOUSE_MODE_VISIBLE)
 	
+func _on_play_game_pressed() -> void:
 	play_game.hide()
 	options.hide()
 	quit.hide()
@@ -34,4 +35,4 @@ func _on_options_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_quit_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
