@@ -126,6 +126,13 @@ use_collision = true
 size = Vector3(2.98444, 3.12054, 21.1558)
 material = SubResource("StandardMaterial3D_5b3i4")
 
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Geo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.4831, 0)
+use_collision = true
+radius = 13.1738
+height = 48.6373
+sides = 20
+
 [node name="testTrashPile" parent="." instance=ExtResource("2_x7g8w")]
 transform = Transform3D(0.999927, 0, -0.0120425, 0, 1, 0, 0.0120425, 0, 0.999927, 10.6223, 0.297399, 33.518)
 

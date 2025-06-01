@@ -1,27 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddsks3vhmt8yq"]
+[gd_scene load_steps=9 format=3 uid="uid://ddsks3vhmt8yq"]
 
 [ext_resource type="Script" uid="uid://b7spfi2wo1dst" path="res://scripts_prod/chute.gd" id="1_2fkmg"]
+[ext_resource type="ArrayMesh" uid="uid://dwscn3mv16mjb" path="res://resources/mesh/TrashChute.res" id="2_ll1hq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hu1lx"]
+height = 1.7998
+radius = 3.60303
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu1lx"]
 albedo_color = Color(0.86, 0.5332, 0.767407, 1)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hu1lx"]
-radius = 2.7915
+[sub_resource type="BoxShape3D" id="BoxShape3D_dn2ry"]
+size = Vector3(6.10107, 1.14111, 8.71411)
 
-[node name="Area3D" type="Area3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o10ub"]
+size = Vector3(1.07016, 8.90555, 4.28857)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8f3iu"]
+size = Vector3(0.971421, 8.73395, 6.12842)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ll1hq"]
+size = Vector3(7.1806, 8.34435, 9.91852)
+
+[node name="TrashChute" type="MeshInstance3D"]
+mesh = ExtResource("2_ll1hq")
+
+[node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2fkmg")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.734741, 3.21166e-08, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-2.73705e-09, -0.0626163, -0.998038, 1, -4.37114e-08, 0, -4.36256e-08, -0.998038, 0.0626163, -0.165803, -4.37541e-09, -0.0999012)
+shape = SubResource("CylinderShape3D_hu1lx")
+
+[node name="LightGreen" type="OmniLight3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52323, 3.925, 1.02488)
+light_color = Color(0, 1, 0, 1)
+light_energy = 16.0
+light_size = 1.0
+omni_range = 0.5
+omni_attenuation = 2.0
+
+[node name="LightRed" type="OmniLight3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60599, 3.925, 1.10358)
+light_color = Color(1, 0.223529, 0, 1)
+light_energy = 20.0
+light_size = 1.0
+omni_range = 0.5
+omni_attenuation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Area3D"]
+transform = Transform3D(-2.56038e-09, 0.0585746, -0.998283, -1, -4.37114e-08, 0, -4.36363e-08, 0.998283, 0.0585746, -0.183433, 3.21166e-08, 2.40984e-08)
+visible = false
 radius = 2.6377
 height = 1.50659
 material = SubResource("StandardMaterial3D_hu1lx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.862392, 0, 0)
-shape = SubResource("CylinderShape3D_hu1lx")
+[node name="chuteSnd" type="AudioStreamPlayer3D" parent="Area3D"]
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0995395, -3.5731, -0.734671)
+shape = SubResource("BoxShape3D_dn2ry")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96818, 0.132033, 1.43238)
+shape = SubResource("BoxShape3D_o10ub")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65497, 0.226676, 0.457634)
+shape = SubResource("BoxShape3D_8f3iu")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294903, 0.828885, -5.45182)
+shape = SubResource("BoxShape3D_ll1hq")
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

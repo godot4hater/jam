@@ -5,47 +5,96 @@ const TRASH_AMOUNT_WIN_CON : int    = 10
 var timePassed : float     		    = 0.0
 # hard coding 10 minute timer
 var timeLeft : float     		    = 600.0
+var riseRate : float                = 1.9
 var allowRaise : bool               = false
 var moveValue : float               = 0.0
 
 # hard coded references
 @onready var lavaRef : AnimatableBody3D = $Lava
-
+@onready var bgmPlay : AudioStreamPlayer = $BGM
+var music1  = preload ("res://assets/sounds/normalStart.mp3")
+var music2  = preload ("res://assets/sounds/dangerLoop.mp3")
 # fuck signals
 signal putTimeInPlayersLabel (timeOutput : String)
 
 func _ready():
-	var timer: Timer = Timer.new()
-	timer.wait_time = 1
-	timer.one_shot = false
-	timer.autostart = true
-	timer.timeout.connect (_on_timer_timeout)
-	add_child (timer)
+	bgmPlay.volume_db = -12.0
+	if not gMode.endless:
+		bgmPlay.stream = music1
+		bgmPlay.play()
+		riseRate = 1.9
+		var timer: Timer = Timer.new()
+		timer.wait_time = 1
+		timer.one_shot = false
+		timer.autostart = true
+		timer.timeout.connect (_on_timer_timeout)
+		add_child (timer)
+	else:
+		bgmPlay.stream = music2
+		bgmPlay.play()
+		allowRaise = true
+		moveValue = 50.0
+		riseRate = 0.0075
+		putTimeInPlayersLabel.emit ("SURVIVE")
+		
+		var timer2: Timer = Timer.new()
+		timer2.wait_time = 120
+		timer2.one_shot = true
+		timer2.autostart = true
+		timer2.timeout.connect (_on_timer_timeout2)
+		add_child (timer2)
+		
+		var timer3: Timer = Timer.new()
+		timer3.wait_time = 550
+		timer3.one_shot = true
+		timer3.autostart = true
+		timer3.timeout.connect (_on_timer_timeout3)
+		add_child (timer3)
 
 func _on_timer_timeout() -> void:
 	timeLeft -= 1
 	putTimeInPlayersLabel.emit (ConvertTime (timeLeft))
 	
 	match timeLeft:
-		590.0:
-			allowRaise = true
-			moveValue = 0.0
-		580.0:
+		540.0:
 			allowRaise = true
 			moveValue = 1.5
-		570.0:
+		480.0:
 			allowRaise = true
-			moveValue = 3.0
-		560.0:
+			moveValue = 3.75
+		420:
+			allowRaise = true
+			moveValue = 4.5
+		360:
+			allowRaise = true
+			moveValue = 5.5
+		300:
+			allowRaise = true
+			moveValue = 6.2
+		240:
+			bgmPlay.stream = music2
+			bgmPlay.play()
 			allowRaise = true
 			moveValue = 7.0
-		550.0:
+		200:
 			allowRaise = true
-			moveValue = 15.0
+			moveValue = 8.5
+		100:
+			allowRaise = true
+			moveValue = 12.0
+		0.0:
+			allowRaise = true
+			moveValue = 99.0
 
+func _on_timer_timeout2() -> void:
+	riseRate = 0.012
+
+func _on_timer_timeout3() -> void:
+	riseRate = 0.025
+	
 func _physics_process (delta) -> void:
 	if allowRaise and trashCollected < TRASH_AMOUNT_WIN_CON:
-		lavaRef.global_position.y = lerp (lavaRef.global_position.y, moveValue, delta * 1.9)
+		lavaRef.global_position.y = lerp (lavaRef.global_position.y, moveValue, delta * riseRate)
 	
 	if lavaRef.global_position.y >= moveValue:
 		allowRaise = false
