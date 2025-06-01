@@ -16,6 +16,7 @@ var moveValue : float               = 0.0
 signal putTimeInPlayersLabel (timeOutput : String)
 
 func _ready():
+	
 	if not gMode.endless:
 		riseRate = 1.9
 		var timer: Timer = Timer.new()

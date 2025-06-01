@@ -27,14 +27,23 @@ signal emitBroomPickupTrash
 @onready var remote_back: RemoteTransform3D = $Roborb/Armature/Skeleton3D/BackAttachment/RemoteBack
 @onready var remote_hand: RemoteTransform3D = $Roborb/Armature/Skeleton3D/HandAttachment/RemoteHand
 @onready var ui_3d: UI3D                    = $SubViewportContainer/SubViewport/UI3D
-@onready var anim_player: AnimationPlayer   = $Roborb/AnimationPlayer
-@onready var timerLabelRef: Label           = $SubViewportContainer/SubViewport/timeLeftLabel
-@onready var winLabelRef: Label             = $SubViewportContainer/SubViewport/winLabel
-@onready var diedLabelRef: Label            = $SubViewportContainer/SubViewport/diedLabel
-@onready var countLabelRef: Label           = $SubViewportContainer/SubViewport/countLabel
+@onready var anim_player : AnimationPlayer  = $Roborb/AnimationPlayer
+@onready var timerLabelRef : Label          = $SubViewportContainer/SubViewport/timeLeftLabel
+@onready var winLabelRef : Label            = $SubViewportContainer/SubViewport/winLabel
+@onready var diedLabelRef : Label           = $SubViewportContainer/SubViewport/diedLabel
+@onready var countLabelRef : Label          = $SubViewportContainer/SubViewport/countLabel
+@onready var moveSndP : AudioStreamPlayer3D = $MoveSound
+@onready var actionSndP: AudioStreamPlayer3D= $ActionSFX
 @onready var lavaRef                        = get_tree().get_root().get_node ("testlvl/Lava/AreaSlow")
 @onready var killboxRef                     = get_tree().get_root().get_node ("testlvl/Lava/AreaKill")
 @onready var gameLoopRef                    = get_tree().get_root().get_node ("testlvl")
+
+var idlesnd   = preload ("res://assets/sounds/roboIdle_snd.wav")
+var jumpsnd   = preload ("res://assets/sounds/roboJump_snd.wav")
+var movesnd   = preload ("res://assets/sounds/roboMove_snd.wav")
+var dropsnd   = preload ("res://assets/sounds/roboDrop_snd.wav")
+var sprintsnd = preload ("res://assets/sounds/brushMode_snd.wav")
+var throwsnd  = preload ("res://assets/sounds/roboThrow_snd.wav")
 
 ## This is the things you hold, not Roborbs body
 var bodyRef : Node3D
@@ -43,6 +52,7 @@ var roborb_track_material: ShaderMaterial
 func _ready() -> void:
 	if gMode.endless:
 		countLabelRef.text = "0"
+		
 	# Reset broom remotes
 	broom.holstered = true
 	remote_back.remote_path = remote_back.get_path_to(broom)
@@ -100,15 +110,21 @@ func _physics_process (delta):
 		bodyRef.set_collision_layer_value (4, true)
 	
 	if Input.is_action_pressed("Fire") and isHoldingItem and is_instance_valid (bodyRef):
+		actionSndP.stream = throwsnd
+		actionSndP.play()
 		ThrowItem ($Roborb.get_global_transform().basis.z * 10)
 		bodyRef.linear_velocity.y = throwStrength
 		bodyRef = null
 	
 	if Input.is_action_pressed("Release") and isHoldingItem and is_instance_valid (bodyRef):
+		actionSndP.stream = dropsnd
+		actionSndP.play()
 		ThrowItem (Vector3 (0.1, 1.0, 0.1))
 		bodyRef = null
 		
 	if Input.is_action_pressed("mJump") and is_on_floor():
+		actionSndP.stream = jumpsnd
+		actionSndP.play()
 		velocity.y = sqrt (curJumpHeight * 2 * gravity)
 	
 	velocity.y -= gravity * delta
