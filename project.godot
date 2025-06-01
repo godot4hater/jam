@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="jam"
+config/name="Roborb's Robortdeal"
+config/description="This game is trash."
 run/main_scene="uid://dj51ylc1yphm0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
