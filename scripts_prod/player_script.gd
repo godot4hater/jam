@@ -79,9 +79,6 @@ func _physics_process (delta):
 	if isDead:
 		return 
 		
-	if Input.is_action_pressed("mJump") and is_on_floor():
-		velocity.y = sqrt (curJumpHeight * 2 * gravity)
-	
 	var h_input = Input.get_vector("mLeft", "mRight", "mForward", "mBack")
 	
 	if h_input:	
