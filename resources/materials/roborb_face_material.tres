@@ -1,0 +1,39 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c3t4t8harmgww"]
+
+[ext_resource type="Texture2D" uid="uid://m2dwkthpncmj" path="res://assets/Roborb_roborb_faces.png" id="1_yywyu"]
+
+[sub_resource type="Shader" id="Shader_asc5d"]
+code = "shader_type spatial;
+render_mode cull_disabled;
+
+uniform sampler2D albedo_texture: source_color, filter_nearest;
+uniform sampler2D noise_texture: source_color;
+
+uniform vec2 face_coord = vec2(0.0, 0.0); 
+
+void vertex(){
+	float r = texture(noise_texture, vec2(UV.x + (TIME * 0.12), UV.y)).r;
+	r = r * 2.0 - 1.0;
+
+	VERTEX += (NORMAL) * (r * 0.01);
+}
+
+void fragment() {
+	vec4 color = texture(albedo_texture, UV + face_coord);
+	ALBEDO = color.rgb * COLOR.rgb;
+	EMISSION = COLOR.rgb * color.rgb;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trxfm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c15c0"]
+seamless = true
+noise = SubResource("FastNoiseLite_trxfm")
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_asc5d")
+shader_parameter/albedo_texture = ExtResource("1_yywyu")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_c15c0")
+shader_parameter/face_coord = Vector2(0, 0)
