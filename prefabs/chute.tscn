@@ -35,7 +35,7 @@ transform = Transform3D(-2.73705e-09, -0.0626163, -0.998038, 1, -4.37114e-08, 0,
 shape = SubResource("CylinderShape3D_hu1lx")
 
 [node name="LightGreen" type="OmniLight3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.115, 3.925, 1.589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52323, 3.925, 1.02488)
 light_color = Color(0, 1, 0, 1)
 light_energy = 16.0
 light_size = 1.0
@@ -43,7 +43,7 @@ omni_range = 0.5
 omni_attenuation = 2.0
 
 [node name="LightRed" type="OmniLight3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.115, 3.925, -1.565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60599, 3.925, 1.10358)
 light_color = Color(1, 0.223529, 0, 1)
 light_energy = 20.0
 light_size = 1.0

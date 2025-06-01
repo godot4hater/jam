@@ -22,4 +22,6 @@ shader_parameter/metallic = 0.0
 shader_parameter/use_metallic_texture = false
 shader_parameter/metallic_texture = ExtResource("3_6nfqh")
 shader_parameter/normalmap = 1.0
+shader_parameter/scroll_x = 0.0
+shader_parameter/scroll_y = 0.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_pkxrq")

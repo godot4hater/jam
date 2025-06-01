@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://fp2avv6l8ko7"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bi3am8yu3it6o"]
 
 [ext_resource type="Shader" uid="uid://b2mphctoaueqf" path="res://resources/shaders/trash_shader.gdshader" id="1_p40r8"]
 [ext_resource type="Texture2D" uid="uid://c6i27528giayf" path="res://assets/textures/Beam Color.png" id="2_eb841"]
@@ -18,4 +18,6 @@ shader_parameter/use_roughness_texture = false
 shader_parameter/metallic = 0.0
 shader_parameter/use_metallic_texture = false
 shader_parameter/normalmap = 1.0
+shader_parameter/scroll_x = 0.0
+shader_parameter/scroll_y = 0.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_lf7pp")
